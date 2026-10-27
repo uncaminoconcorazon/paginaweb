@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tablero de estilo</title>
+<!-- Tablero de estilo del video: la persona lo abre en el navegador y aprueba ANTES del animatic.
+     Copia este archivo a <proyecto>/tablero.html, copia kit/personaje-papel.js a <proyecto>/kit/ si hay personaje,
+     y llena SOLO el objeto DATA de abajo (mismos valores que gusto.md). Revisa con una captura antes de mostrarlo. -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script src="kit/personaje-papel.js" onerror="window.Personaje=null"></script>
+<style>
+  :root { --bg:#f6f7f9; --ink:#17191d; --muted:#686d77; --line:#e0e4eb; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: var(--ink); font: 400 17px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; padding: 56px 16px 96px; }
+  main { max-width: 1180px; margin: 0 auto; }
+  h1 { font-size: 52px; line-height: 1; letter-spacing: -2px; font-weight: 800; }
+  h2 { font-size: 26px; letter-spacing: -.8px; margin: 60px 0 16px; font-weight: 800; }
+  .sub { color: var(--muted); margin-top: 10px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 20px; }
+  .grid { display: grid; gap: 16px; }
+  .poses { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); } .pose .fig { height: 220px; }
+  .pose b, .cuadro b { display: block; text-align: center; font-weight: 600; margin-top: 6px; }
+  .sw { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+  .sw > div > div { height: 84px; border-radius: 16px; border: 1px solid var(--line); }
+  .sw p { font-size: 14px; color: var(--muted); margin-top: 6px; } .sw p b { color: var(--ink); display: block; }
+  .tipo .muestra { line-height: 1.05; } .tipo small { display: block; color: var(--muted); font-size: 14px; margin: 8px 0 18px; }
+  .cuadros { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); } .cuadro img { width: 100%; border-radius: 12px; display: block; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); }
+  td, th { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); font-size: 15px; vertical-align: top; } th { color: var(--muted); font-weight: 600; }
+  .sino { grid-template-columns: 1fr 1fr; } @media (max-width: 760px) { .sino { grid-template-columns: 1fr; } h1 { font-size: 38px; } }
+  li { margin: 6px 0 6px 18px; }
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+const DATA = {
+  titulo: "Tablero de estilo",
+  bajada: "<producto> · <concepto> · 1920×1080 → 4K60",
+  concepto: "Una frase: la observación verdadera y qué pasa en el video.",
+  personaje: null,              // o { rasgos: { peinado: "rulos", gorra: "#c9b99c", ... }, poses: ["neutral","saluda","señala","celebra"] }
+  paleta: [ { hex: "#f6f7f9", nombre: "fondo", uso: "fondo de todo" }, { hex: "#17191d", nombre: "tinta", uso: "texto" } ],
+  fuentes: [ { familia: "Manrope", archivo: "assets/fonts/manrope-800.ttf", peso: 800, tam: 64, tracking: -3, uso: "titulares", muestra: "Una frase real del guion." } ],
+  cuadros: [],                  // [{ img: "animatic/01.png", texto: "0–2 s: …" }]  (snapshots del animatic, si ya existen)
+  sonido: [ ["Evento", "Sonido", "Regla"] ],
+  si: ["…"], no: ["…"],
+};
+
+const app = document.getElementById("app"), esc = s => String(s).replace(/</g, "&lt;");
+let h = `<h1>${esc(DATA.titulo)}</h1><p class="sub">${esc(DATA.bajada)}</p><div class="card" style="margin-top:22px">${esc(DATA.concepto)}</div>`;
+if (DATA.personaje && window.Personaje) h += `<h2>Personaje</h2><div class="grid poses" id="poses"></div>`;
+h += `<h2>Paleta</h2><div class="grid sw">${DATA.paleta.map(c => `<div><div style="background:${c.hex}"></div><p><b>${c.hex} ${esc(c.nombre)}</b>${esc(c.uso)}</p></div>`).join("")}</div>`;
+h += `<h2>Tipografía</h2><div class="card tipo">`;
+DATA.fuentes.forEach((f, i) => { const fam = "F" + i;
+  document.head.insertAdjacentHTML("beforeend", `<style>@font-face{font-family:${fam};src:url(${f.archivo});font-weight:${f.peso}}</style>`);
+  h += `<div class="muestra" style="font-family:${fam},sans-serif;font-weight:${f.peso};font-size:${f.tam}px;letter-spacing:${f.tracking || 0}px">${esc(f.muestra)}</div>
+        <small>${esc(f.familia)} ${f.peso} · ${f.tam}px · ${esc(f.uso)}</small>`; });
+h += `</div>`;
+if (DATA.cuadros.length) h += `<h2>Cuadros clave</h2><div class="grid cuadros">${DATA.cuadros.map(c => `<div class="card cuadro"><img src="${c.img}" alt=""><b>${esc(c.texto)}</b></div>`).join("")}</div>`;
+h += `<h2>Sonido</h2><table>${DATA.sonido.map((r, i) => `<tr>${r.map(c => i ? `<td>${esc(c)}</td>` : `<th>${esc(c)}</th>`).join("")}</tr>`).join("")}</table>`;
+h += `<h2>Sí / No</h2><div class="grid sino"><div class="card"><b>Sí</b><ul>${DATA.si.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div><div class="card"><b>No</b><ul>${DATA.no.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div></div>`;
+app.innerHTML = h;
+if (DATA.personaje && window.Personaje) DATA.personaje.poses.forEach(k => {
+  const c = document.createElement("div"); c.className = "card pose"; c.innerHTML = `<div class="fig"></div><b>${k}</b>`;
+  document.getElementById("poses").appendChild(c); Personaje(c.querySelector(".fig"), DATA.personaje.rasgos).ahora(k);
+});
+</script>
+</body>
+</html>

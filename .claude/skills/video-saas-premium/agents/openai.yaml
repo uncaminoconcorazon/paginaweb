@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video SaaS premium"
+  short_description: "Motion graphics premium a la medida de tu producto (v3): concepto propio con momentos wow, UI real, personaje de papel, sonido medido y memoria de gusto, en 4K"
+  default_prompt: "Usa $video-saas-premium para hacer un video de motion graphics de este producto."
