@@ -1,14 +1,16 @@
 # Pendientes y decisiones requeridas
 
 ## Producción
-- Producción se despliega desde la rama `main` en Vercel (proyecto `uncaminoconcorazon-7c39`). Dominio propio: pendiente de elegir.
-- Los cobros reales NO están activos (sin proveedor de pagos).
+- Producción se despliega desde la rama `main` en Vercel (proyecto `paginaweb`, equipo `un-camino-con-corazon`). Dominio propio: pendiente de elegir.
+- Los cobros reales NO están activos. Proveedor elegido: Mercado Pago (integración pendiente).
 
-## Bloqueantes de infraestructura
-- [x] Proyecto Supabase `fwpwwoecphsozgqyvbwh` (uncaminoconcorazon): migraciones aplicadas.
-- [x] Variables públicas cargadas en Vercel. Falta `SUPABASE_SERVICE_ROLE_KEY` (solo cuando exista el webhook de pagos; cargarla directo en Vercel).
-- [x] Proyecto Vercel `uncaminoconcorazon-7c39` vinculado al repo.
-- [ ] Configurar en Supabase Auth: Site URL y Redirect URLs (`/auth/callback`), plantillas de email en español.
+## Infraestructura (todo en las cuentas de la dueña)
+- [x] GitHub: `uncaminoconcorazon/paginaweb`.
+- [x] Supabase: proyecto `hzarfbsxkpdvsafbpjst` (un-camino-con-corazon-web, región sa-east-1, plan gratuito): migraciones aplicadas.
+- [x] Vercel: proyecto `paginaweb` vinculado al repo, sin protección de acceso (sitio público). Variables públicas de Supabase cargadas.
+- [ ] Supabase Auth: Site URL y Redirect URLs (`/auth/callback`), plantillas de email en español.
+- [ ] `SUPABASE_SERVICE_ROLE_KEY`: cargar directo en Vercel solo cuando exista el webhook de pagos.
+- [ ] Plan gratuito de Supabase: pausa el proyecto tras ~7 días sin actividad; evaluar plan pago antes del lanzamiento.
 
 ## Decisiones de negocio
 - [ ] País/mercado y proveedor de pagos recurrentes; planes y precios; política de cancelación/reembolso.

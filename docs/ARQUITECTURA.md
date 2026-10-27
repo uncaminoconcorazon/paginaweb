@@ -1,9 +1,7 @@
 # Arquitectura (Fase 1 + fundaciones de Fase 2)
 
 ## Diagnóstico inicial
-- Repo vacío (sin commits). Nada que reutilizar ni preservar.
-- Vercel: equipo `kidsclubcafes-projects`, **ningún proyecto** vinculado a este repo.
-- Supabase: solo existen `kidsclubcafe-contratos` y `kidsclub-staging-multitenant`; ninguno parece de esta plataforma. No se tocaron.
+- Proyecto trasladado a las cuentas de la dueña: GitHub `uncaminoconcorazon/paginaweb`, Supabase `un-camino-con-corazon-web` y Vercel `paginaweb`.
 
 ## Stack (justificado)
 Next.js 15 (App Router, TS) + Tailwind 4 + Supabase (`@supabase/ssr`) + Zod. Elegido por encajar con Vercel/Supabase, SSR/SEO para páginas públicas y Server Actions/Route Handlers para lógica de confianza.

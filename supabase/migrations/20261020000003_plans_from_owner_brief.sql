@@ -1,4 +1,4 @@
--- Aplicada al proyecto fwpwwoecphsozgqyvbwh. Planes según el documento de la dueña.
+-- Aplicada al proyecto Supabase hzarfbsxkpdvsafbpjst. Planes según el documento de la dueña.
 -- Precios de lanzamiento tentativos ($27.000 / $40.000, asumidos en ARS): CONFIRMAR antes de cobrar.
 update public.plans set
   slug = 'clases-grabadas', name = 'Clases grabadas',

@@ -1,5 +1,5 @@
 -- Fase 2 · Fundaciones: perfiles, roles, planes, suscripciones, pagos, ajustes.
--- Migración aditiva. Aplicada al proyecto fwpwwoecphsozgqyvbwh (uncaminoconcorazon).
+-- Migración aditiva. Aplicada al proyecto Supabase hzarfbsxkpdvsafbpjst (un-camino-con-corazon-web).
 
 create type public.app_role as enum ('user', 'instructor', 'moderator', 'admin');
 create type public.billing_interval as enum ('month', 'year');

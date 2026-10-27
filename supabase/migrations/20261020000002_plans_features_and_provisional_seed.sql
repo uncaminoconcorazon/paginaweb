@@ -1,4 +1,4 @@
--- Aplicada al proyecto fwpwwoecphsozgqyvbwh.
+-- Aplicada al proyecto Supabase hzarfbsxkpdvsafbpjst.
 -- Dos planes PROVISORIOS (sin precio): nombres, contenidos y kit a definir por la dueña.
 alter table public.plans add column features jsonb not null default '[]'::jsonb;
 

@@ -1,4 +1,4 @@
--- Aplicada al proyecto fwpwwoecphsozgqyvbwh. Cierra helpers SECURITY DEFINER no necesarios vía RPC.
+-- Aplicada al proyecto Supabase hzarfbsxkpdvsafbpjst. Cierra helpers SECURITY DEFINER no necesarios vía RPC.
 -- is_admin queda accesible para anon porque lo usan las políticas RLS de plans/site_settings.
 revoke execute on function public.current_app_role() from public, anon, authenticated;
 revoke execute on function public.handle_new_user() from public, anon, authenticated;

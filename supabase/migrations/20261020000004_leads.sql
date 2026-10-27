@@ -1,4 +1,4 @@
--- Aplicada al proyecto fwpwwoecphsozgqyvbwh. Captación del embudo (desafío gratuito).
+-- Aplicada al proyecto Supabase hzarfbsxkpdvsafbpjst. Captación del embudo (desafío gratuito).
 create table public.leads (
   id uuid primary key default gen_random_uuid(),
   email text not null check (char_length(email) between 5 and 254),
