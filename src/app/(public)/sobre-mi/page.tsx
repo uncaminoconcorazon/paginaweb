@@ -46,9 +46,10 @@ export default function SobreMi() {
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-16 md:grid-cols-2">
         <div className="space-y-5 text-lg text-muted">
           {story.slice(1, 3).map((t) => <p key={t}>{t}</p>)}
+          <p>Soy cantante en una banda llamada <strong className="font-medium text-foreground">OFIURAS</strong>.</p>
         </div>
-        <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
-          <Image src="/brand/milu/cuaderno.webp" alt="Manos escribiendo en un cuaderno" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+        <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl">
+          <Image src="/brand/milu/ofiuras.webp" alt="Milu cantando en un recital con su banda OFIURAS" fill sizes="(min-width: 768px) 448px, 100vw" className="object-cover" style={{ objectPosition: "center 45%" }} />
         </div>
       </section>
 
@@ -83,8 +84,8 @@ export default function SobreMi() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl space-y-5 px-4 pb-20 text-lg text-muted">
-        <p>{vision[3]}</p>
+      <section className="mx-auto max-w-4xl px-4 pb-24 pt-4">
+        <p className="font-serif border-l-2 border-mauve pl-6 text-3xl italic leading-snug text-foreground md:pl-8 md:text-5xl">{vision[3]}</p>
       </section>
 
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-20 md:grid-cols-[1.3fr_1fr]">
@@ -105,6 +106,7 @@ export default function SobreMi() {
         <div className="mt-7 flex flex-wrap justify-center gap-3">
           <ButtonLink href="/planes">Conocé la membresía</ButtonLink>
           <ButtonLink href="/desafio" variant="secondary">Empezá con el desafío gratuito</ButtonLink>
+          <ButtonLink href="/casa-corazon" variant="secondary">Clases presenciales</ButtonLink>
         </div>
       </section>
     </>
