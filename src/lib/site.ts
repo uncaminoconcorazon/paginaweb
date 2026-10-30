@@ -5,10 +5,10 @@ export const site = {
 
 export const publicNav = [
   { href: "/", label: "Inicio" },
-  { href: "/planes", label: "La membresía" },
-  { href: "/desafio", label: "Desafío gratuito" },
   { href: "/sobre-mi", label: "Sobre mí" },
+  { href: "/planes", label: "La membresía" },
   { href: "/casa-corazon", label: "Casa Corazón" },
+  { href: "/desafio", label: "Desafío gratuito" },
 ];
 
 export const instagram = { handle: "@un.camino.con.corazon", href: "https://www.instagram.com/un.camino.con.corazon/" };
