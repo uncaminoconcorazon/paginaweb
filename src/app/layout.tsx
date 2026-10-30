@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { site } from "@/lib/site";
 import "@fontsource/open-sauce-one/300.css";
 import "@fontsource/open-sauce-one/400.css";
@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   title: { default: `${site.name} · Yoga, bienestar y comunidad`, template: `%s · ${site.name}` },
   description: "Yoga, arte, alimentación consciente, meditación y escritura para encontrar tu propio camino y llevarlo a la vida cotidiana.",
 };
+
+// Sitio solo en modo claro: evita que el celular lo oscurezca automáticamente.
+export const viewport: Viewport = { colorScheme: "only light", themeColor: "#f1ece6" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
