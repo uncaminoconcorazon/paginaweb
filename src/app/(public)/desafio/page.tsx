@@ -16,7 +16,7 @@ export default function Desafio() {
           <p className="text-[11px] uppercase tracking-[0.28em] text-muted">{challenge.eyebrow}</p>
           <h1 className="mt-3 text-5xl md:text-6xl">{challenge.title}</h1>
           <div className="mt-8 space-y-4 text-lg text-muted">
-            {challenge.text.map((t) => <p key={t}>{t}</p>)}
+            {[challenge.text[0], challenge.text[3], challenge.text[4]].map((t) => <p key={t}>{t}</p>)}
           </div>
           <p className="font-serif mt-8 text-3xl italic">{challenge.closing}</p>
         </div>

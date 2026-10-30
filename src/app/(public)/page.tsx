@@ -1,21 +1,22 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
-import { Frase } from "@/components/frase";
+import { Cinta } from "@/components/cinta";
+import { FotoFrase } from "@/components/foto-frase";
 import { PlanCards } from "@/components/plan-cards";
-import { castanedaQuote, challenge, homeHero as h, invitation, membership, phrases, wish } from "@/content/home";
+import { castanedaShort, challenge, cinta, homeHero as h, invitationShort, phrases, tiles, wish } from "@/content/home";
 
 const eyebrow = "text-[11px] uppercase tracking-[0.28em] text-muted";
 
 export default function Home() {
   return (
     <>
-      {/* Portada: la pregunta */}
+      {/* Portada: qué es, dicho con claridad */}
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-10 md:grid-cols-2 md:py-20">
         <div className="order-2 md:order-1">
-          <p className={eyebrow}>Un camino con corazón</p>
+          <p className={eyebrow}>{h.eyebrow}</p>
           <h1 className="mt-4 text-5xl leading-[1.05] sm:text-7xl">{h.question}</h1>
           <p className="font-serif mt-5 text-2xl italic text-muted">{h.tagline}</p>
-          <p className="mt-6 max-w-md text-lg text-muted">{h.lead}</p>
+          <p className="mt-6 max-w-md text-lg">{h.lead}</p>
           <div className="mt-9 flex flex-wrap gap-3">
             <ButtonLink href={h.primaryCta.href}>{h.primaryCta.label}</ButtonLink>
             <ButtonLink href={h.secondaryCta.href} variant="secondary">{h.secondaryCta.label}</ButtonLink>
@@ -26,29 +27,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Cita de Castaneda */}
-      <section className="bg-surface px-4 py-20 md:py-28">
+      <Cinta items={cinta} />
+
+      {/* Cita (extracto) */}
+      <section className="bg-surface px-4 py-16 md:py-24">
         <figure className="mx-auto max-w-3xl">
-          <blockquote className="font-serif space-y-4 border-l-2 border-mauve pl-6 text-2xl italic leading-relaxed md:text-3xl">
-            {castanedaQuote.text.map((t) => <p key={t}>{t}</p>)}
+          <blockquote className="font-serif space-y-3 border-l-2 border-mauve pl-6 text-2xl italic leading-relaxed md:text-3xl">
+            {castanedaShort.text.map((t) => <p key={t}>{t}</p>)}
           </blockquote>
-          <figcaption className="mt-6 pl-6 text-sm text-muted">— {castanedaQuote.author}</figcaption>
+          <figcaption className="mt-5 pl-6 text-sm text-muted">— {castanedaShort.author}</figcaption>
         </figure>
       </section>
 
-      {/* La invitación */}
-      <section className="mx-auto max-w-3xl px-4 py-20 md:py-28">
-        <div className="space-y-5 text-lg text-muted">
-          {invitation.map((t) => <p key={t}>{t}</p>)}
+      {/* Invitación (breve) */}
+      <section className="mx-auto max-w-3xl px-4 py-16 md:py-24">
+        <div className="space-y-4 text-lg text-muted">
+          {invitationShort.map((t) => <p key={t}>{t}</p>)}
         </div>
-        <p className="font-serif mt-10 text-3xl leading-snug md:text-4xl">{wish}</p>
-        <p className="mt-6 text-lg">Bienvenidx a Un camino con corazón.</p>
+        <p className="font-serif mt-8 text-3xl leading-snug md:text-4xl">{wish}</p>
       </section>
 
-      <Frase tone="accent">{phrases[0]}</Frase>
+      <FotoFrase src="/brand/casa/meditacion.webp" position="center 55%" alt="Meditación grupal en Casa Corazón">{phrases[0]}</FotoFrase>
 
       {/* Sobre mí */}
-      <section className="bg-surface px-4 py-20 md:py-28">
+      <section className="bg-surface px-4 py-16 md:py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[1fr_1.2fr]">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
             <Image src="/brand/milu/pose.webp" alt="Milu practicando una postura de equilibrio con una cinta" fill sizes="(min-width: 768px) 480px, 100vw" className="object-cover" />
@@ -56,86 +58,74 @@ export default function Home() {
           <div>
             <p className={eyebrow}>Sobre mí</p>
             <h2 className="mt-3 text-4xl md:text-5xl">Holi, soy Milu.</h2>
-            <p className="mt-5 text-lg text-muted">Soy profesora de yoga, artista y una eterna curiosa de las formas que encontramos para expresarnos, conocernos y habitar este mundo.</p>
-            <p className="font-serif mt-5 border-l-2 border-mauve pl-5 text-2xl italic">Me gusta pensar que estamos acá para aprender a escucharnos, descubrir qué nos hace bien y encontrar nuestro propio camino del corazón.</p>
+            <p className="mt-5 text-lg text-muted">Profesora de yoga y artista. Comparto el yoga junto al arte, la escritura y la alimentación, para llevarlo a la vida cotidiana.</p>
             <div className="mt-6"><ButtonLink href="/sobre-mi" variant="secondary">Conocer mi historia</ButtonLink></div>
           </div>
         </div>
       </section>
 
-      {/* La membresía */}
-      <section className="mx-auto max-w-6xl px-4 py-20 md:py-28">
+      {/* La membresía, en fotos */}
+      <section className="mx-auto max-w-6xl px-4 py-16 md:py-24">
         <p className={eyebrow}>La membresía</p>
-        <h2 className="mt-3 max-w-3xl text-4xl md:text-5xl">{membership.title}</h2>
-        <div className="mt-6 max-w-2xl space-y-3 text-muted">
-          {membership.intro.map((t) => <p key={t}>{t}</p>)}
-        </div>
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {membership.includes.map((i) => (
-            <li key={i.title} className="rounded-3xl bg-surface p-6">
-              <span className="text-sm text-muted">{i.letter}</span>
-              <h3 className="mt-2 text-2xl">{i.title}</h3>
-              <p className="mt-2 text-sm text-muted">{i.text}</p>
+        <h2 className="mt-3 max-w-3xl text-4xl md:text-5xl">Una membresía de yoga online para practicar a tu manera.</h2>
+        <p className="mt-4 max-w-2xl text-lg text-muted">Elegí tu ritmo. Encontrá tu práctica. Compartí el camino.</p>
+        <ul className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3">
+          {tiles.map((t) => (
+            <li key={t.title} className="relative isolate flex aspect-[3/4] items-end overflow-hidden rounded-3xl bg-olive p-4 md:aspect-[4/5] md:p-6">
+              {t.img && <Image src={t.img} alt="" fill sizes="(min-width: 768px) 33vw, 50vw" className="-z-10 object-cover" style={{ objectPosition: t.pos }} />}
+              <div aria-hidden className={`absolute inset-0 -z-10 ${t.img ? "bg-gradient-to-t from-[#2b3322]/85 via-[#2b3322]/10 to-transparent" : "bg-orange/90"}`} />
+              <div className={t.img ? "text-[#f6ebd8]" : "text-foreground"}>
+                <h3 className="text-2xl md:text-3xl">{t.title}</h3>
+                <p className="mt-1 text-sm opacity-90">{t.text}</p>
+              </div>
             </li>
           ))}
         </ul>
-        <p className="font-serif mt-10 text-2xl italic">{membership.closing}</p>
-        <div className="mt-6"><ButtonLink href="/planes">Conocé la membresía</ButtonLink></div>
+        <div className="mt-8"><ButtonLink href="/planes" variant="secondary">Ver todo lo que incluye</ButtonLink></div>
       </section>
 
       {/* Planes */}
-      <section className="mx-auto max-w-6xl px-4 py-20 md:py-28">
-        <p className={eyebrow}>Planes de membresía</p>
+      <section className="mx-auto max-w-6xl px-4 pb-16 md:pb-24">
+        <p className={eyebrow}>Planes</p>
         <h2 className="mt-3 max-w-xl text-4xl md:text-5xl">Tu camino puede empezar hoy.</h2>
-        <p className="mt-3 max-w-xl text-muted">No hay una opción mejor que otra. Se trata de elegir la que mejor acompañe tu momento y tu manera de practicar.</p>
         <div className="mt-10"><PlanCards /></div>
       </section>
 
-      <Frase tone="plain">{phrases[3]}</Frase>
+      <FotoFrase src="/brand/casa/patio.webp" position="center 45%" alt="El patio de Casa Corazón">{phrases[3]}</FotoFrase>
 
       {/* Casa Corazón */}
-      <section className="mx-auto max-w-6xl px-4 py-20 md:py-28">
-        <div className="grid items-end gap-8 md:grid-cols-[1fr_1.4fr]">
-          <div>
-            <p className={eyebrow}>Tapiales, Buenos Aires</p>
-            <h2 className="mt-3 text-4xl md:text-5xl">Casa Corazón</h2>
-            <p className="font-serif mt-4 text-2xl italic">Una casa para volver al cuerpo. Un espacio para encontrarnos.</p>
-            <p className="mt-4 text-muted">Mi espacio de yoga: un lugar íntimo, creado y cuidado con mucho amor, donde cada encuentro es una invitación a bajar el ritmo, escuchar el cuerpo y regalarnos un momento de presencia.</p>
-            <div className="mt-6"><ButtonLink href="/casa-corazon" variant="secondary">Quiero conocer Casa Corazón</ButtonLink></div>
-          </div>
-          <div className="grid grid-cols-3 gap-3">
-            {["almohadones", "meditacion", "cuenco"].map((n, i) => (
-              <div key={n} className={`relative aspect-[3/4] overflow-hidden rounded-2xl ${i === 1 ? "translate-y-6" : ""}`}>
-                <Image src={`/brand/casa/${n}.webp`} alt="" fill sizes="(min-width: 768px) 25vw, 33vw" className="object-cover" />
-              </div>
-            ))}
-          </div>
+      <section className="mx-auto max-w-6xl px-4 py-16 md:py-24">
+        <div className="grid gap-3 md:grid-cols-[1fr_1fr_1fr]">
+          {["sala", "cuenco", "almohadones"].map((n, i) => (
+            <div key={n} className={`relative aspect-[3/4] overflow-hidden rounded-3xl ${i === 1 ? "md:translate-y-8" : ""}`}>
+              <Image src={`/brand/casa/${n}.webp`} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+            </div>
+          ))}
+        </div>
+        <div className="mt-16 max-w-2xl">
+          <p className={eyebrow}>Tapiales, Buenos Aires</p>
+          <h2 className="mt-3 text-4xl md:text-5xl">Casa Corazón</h2>
+          <p className="font-serif mt-3 text-2xl italic">Una casa para volver al cuerpo. Un espacio para encontrarnos.</p>
+          <div className="mt-6"><ButtonLink href="/casa-corazon" variant="secondary">Quiero conocer Casa Corazón</ButtonLink></div>
         </div>
       </section>
 
-      <Frase tone="surface">{phrases[5]}</Frase>
-
-      {/* Desafío gratuito: puerta de entrada */}
-      <section className="bg-accent px-4 py-20 text-accent-foreground md:py-28">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[1.2fr_1fr]">
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.28em] opacity-80">{challenge.eyebrow}</p>
-            <h2 className="mt-3 text-4xl md:text-5xl">{challenge.title}</h2>
-            <p className="mt-5 max-w-xl text-lg opacity-90">{challenge.text[0]}</p>
-            <p className="mt-3 max-w-xl opacity-90">{challenge.text[1]}</p>
-            <ul className="mt-6 flex flex-wrap gap-2 text-sm">
-              {challenge.how.map((c) => <li key={c} className="rounded-full border border-accent-foreground/40 px-4 py-2">{c}</li>)}
-            </ul>
-            <p className="font-serif mt-8 text-2xl italic">{challenge.closing}</p>
-            <div className="mt-6"><a href="/desafio" className="inline-flex min-h-11 items-center justify-center rounded-full bg-accent-foreground px-6 text-sm font-medium text-accent">{challenge.cta}</a></div>
-          </div>
-          <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem]">
-            <Image src="/brand/casa/brazos.webp" alt="Práctica de yoga con los brazos en alto" fill sizes="(min-width: 768px) 420px, 100vw" className="object-cover" />
-          </div>
+      {/* Desafío gratuito */}
+      <section className="relative isolate overflow-hidden px-4 py-20 text-[#f6ebd8] md:py-28">
+        <Image src="/brand/casa/brazos.webp" alt="" fill sizes="100vw" className="-z-10 object-cover" style={{ objectPosition: "center 25%" }} />
+        <div aria-hidden className="absolute inset-0 -z-10 bg-[#2b3322]/75" />
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-[11px] uppercase tracking-[0.28em] opacity-80">{challenge.eyebrow}</p>
+          <h2 className="mt-3 text-4xl md:text-6xl">{challenge.title}</h2>
+          <ul className="mt-6 flex flex-wrap justify-center gap-2 text-sm">
+            {challenge.how.map((c) => <li key={c} className="rounded-full border border-[#f6ebd8]/50 px-4 py-2">{c}</li>)}
+          </ul>
+          <p className="font-serif mt-8 text-2xl italic md:text-3xl">{challenge.closing}</p>
+          <div className="mt-8"><a href="/desafio" className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#f6ebd8] px-6 text-sm font-medium text-[#2b3322]">{challenge.cta}</a></div>
         </div>
       </section>
 
-      <Frase tone="surface">{phrases[12]}</Frase>
+      <FotoFrase src="/brand/casa/almohadones.webp" position="center 60%" alt="Bolsters y almohadones sobre las colchonetas">{phrases[12]}</FotoFrase>
     </>
   );
 }

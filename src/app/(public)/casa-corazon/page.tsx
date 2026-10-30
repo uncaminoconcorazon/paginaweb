@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
-import { Frase } from "@/components/frase";
-import { phrases } from "@/content/home";
+import { FotoFrase } from "@/components/foto-frase";
 import { instagram } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -17,14 +16,10 @@ const fotos = [
 ] as const;
 
 const text = [
-  "Me gusta pensar este espacio como una pequeña pausa dentro de la vida cotidiana. Un lugar donde no hace falta llegar sabiendo, pudiendo ni demostrando nada.",
-  "Solo venir como sos.",
-  "Las clases son semipersonalizadas, en grupos reducidos, para poder acompañar de cerca los procesos de cada persona, atender sus necesidades y ofrecer propuestas que respeten sus posibilidades.",
-  "Trabajamos con elementos de yoga, como tacos, bolsters y cinturones, que nos permiten explorar las posturas con mayor comodidad, encontrar apoyos y adaptar la práctica a diferentes cuerpos y experiencias.",
-  "A través del Hatha Yoga, el yoga suave, el yoga terapéutico y otras propuestas, buscamos desarrollar fuerza, movilidad, estabilidad y conciencia corporal, sin perder de vista algo fundamental: cada cuerpo tiene su historia, sus tiempos y sus necesidades.",
-  "No creo en una única forma correcta de practicar yoga. Creo en la posibilidad de construir una práctica que tenga sentido para cada persona, que pueda acompañarla en el momento que está atravesando y que le ofrezca herramientas para sentirse mejor en su vida cotidiana.",
-  "Casa Corazón es ese lugar donde podemos explorar, equivocarnos, aprender, descansar y volver a empezar.",
-  "Un espacio para practicar yoga, sí. Pero también para aprender a escucharnos con un poquito más de paciencia y amabilidad.",
+  "Un lugar donde no hace falta llegar sabiendo, pudiendo ni demostrando nada. Solo venir como sos.",
+  "Las clases son semipersonalizadas, en grupos reducidos, para acompañar de cerca a cada persona y respetar sus posibilidades.",
+  "Trabajamos con elementos de yoga, como tacos, bolsters y cinturones, para explorar las posturas con comodidad y adaptar la práctica a cada cuerpo.",
+  "Hatha Yoga, yoga suave, yoga terapéutico y otras propuestas, para desarrollar fuerza, movilidad, estabilidad y conciencia corporal. No creo en una única forma correcta de practicar: cada cuerpo tiene su historia, sus tiempos y sus necesidades.",
 ];
 
 export default function CasaCorazon() {
@@ -38,18 +33,29 @@ export default function CasaCorazon() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4">
-        <div className="columns-2 gap-3 md:columns-3 [&>div]:mb-3">
-          {fotos.map(([n, alt]) => (
-            <div key={n} className="relative break-inside-avoid overflow-hidden rounded-2xl">
-              <Image src={`/brand/casa/${n}.webp`} alt={alt} width={1064} height={1600} sizes="(min-width: 768px) 33vw, 50vw" className="h-auto w-full" />
+        <div className="grid gap-3 md:grid-cols-3">
+          {["sala", "cuenco", "puerta"].map((n, i) => (
+            <div key={n} className={`relative aspect-[3/4] overflow-hidden rounded-3xl ${i === 1 ? "md:translate-y-8" : ""}`}>
+              <Image src={`/brand/casa/${n}.webp`} alt={fotos.find((f) => f[0] === n)?.[1] ?? ""} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
             </div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl space-y-5 px-4 py-20 text-lg text-muted">
+      <section className="mx-auto max-w-3xl space-y-5 px-4 py-24 text-lg text-muted">
         {text.map((t) => <p key={t}>{t}</p>)}
-        <p className="font-serif text-3xl italic text-foreground">Porque cuando hacemos espacio para escucharnos, algo empieza a cambiar.</p>
+      </section>
+
+      <FotoFrase src="/brand/casa/almohadones.webp" position="center 55%" alt="Bolsters y almohadones sobre las colchonetas">Porque cuando hacemos espacio para escucharnos, algo empieza a cambiar.</FotoFrase>
+
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <div className="columns-2 gap-3 md:columns-3 [&>div]:mb-3">
+          {fotos.filter((f) => !["sala", "cuenco", "puerta", "almohadones"].includes(f[0])).map(([n, alt]) => (
+            <div key={n} className="relative break-inside-avoid overflow-hidden rounded-2xl">
+              <Image src={`/brand/casa/${n}.webp`} alt={alt} width={1064} height={1600} sizes="(min-width: 768px) 33vw, 50vw" className="h-auto w-full" />
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="bg-surface px-4 py-20">
@@ -64,7 +70,6 @@ export default function CasaCorazon() {
         </div>
       </section>
 
-      <Frase tone="plain">{phrases[2]}</Frase>
     </>
   );
 }

@@ -1,8 +1,9 @@
 /** Textos aprobados por Milu (documento "PROYECTO WEB: UN CAMINO CON CORAZÓN"). */
 export const homeHero = {
+  eyebrow: "Membresía online de yoga",
   question: "¿Tiene este camino un corazón?",
   tagline: "Encontrar tu propio camino. Habitar tu cuerpo. Volver a lo esencial.",
-  lead: "Todos los caminos son iguales: no llevan a ninguna parte. Pero hay caminos que tienen corazón y caminos que no.",
+  lead: "Una membresía de yoga online: clases grabadas, encuentros en vivo conmigo, meditación, alimentación consciente y escritura creativa. Para practicar a tu ritmo, desde donde estés.",
   primaryCta: { label: "Conocé la membresía", href: "/planes" },
   secondaryCta: { label: "Empezá con el desafío gratuito", href: "/desafio" },
 };
@@ -121,4 +122,25 @@ export const faqs = [
   ["¿Cómo funciona el pago?", "Se realiza mediante Mercado Pago con una suscripción mensual. Cada persona tiene su propia fecha de renovación."],
   ["¿Puedo cancelar mi membresía?", "Sí. Podés cancelar la renovación cuando quieras."],
   ["¿Cuándo puedo inscribirme?", "Las inscripciones están abiertas durante todo el mes."],
+];
+
+export const cinta = ["Yoga online", "Clases de 20 y 60 minutos", "Encuentros en vivo", "Meditación", "Alimentación consciente", "Escritura creativa", "Comunidad"];
+
+export const castanedaShort = {
+  text: ["¿Tiene este camino un corazón?", "Todos los caminos son iguales: no llevan a ninguna parte. (…) Si lo tiene, el camino es bueno; si no lo tiene, no sirve para nada.", "Uno te fortalece; el otro te debilita."],
+  author: "Don Juan, en Las enseñanzas de Don Juan, de Carlos Castaneda",
+};
+
+export const invitationShort = [
+  "Quizás la pregunta no sea hacia dónde vamos, sino cómo queremos recorrer el camino.",
+  "A través del yoga, el arte, la alimentación y la escritura, quiero compartir herramientas para dejar de buscar fórmulas ajenas, escucharnos y descubrir qué nos hace bien.",
+];
+
+export const tiles = [
+  { title: "Yoga para cada momento", text: "Vinyasa, Hatha, suave y restaurativo.", img: "/brand/casa/brazos.webp", pos: "center 30%" },
+  { title: "Clases de 20 y 60 minutos", text: "Cortas para el día a día, largas para profundizar.", img: "/brand/milu/pose.webp", pos: "center 40%" },
+  { title: "Meditaciones guiadas", text: "Un refugio al que volver cuando lo necesites.", img: "/brand/casa/meditacion.webp", pos: "center 60%" },
+  { title: "Alimentación consciente", text: "Recetas, ideas y consejos para nutrirte con calma.", img: null, pos: "center" },
+  { title: "Escritura creativa y arte", text: "Propuestas para escucharte creando.", img: "/brand/milu/cuaderno.webp", pos: "center" },
+  { title: "Comunidad", text: "Programas mensuales y un grupo de WhatsApp para compartir.", img: "/brand/milu/grupo.webp", pos: "center 60%" },
 ];

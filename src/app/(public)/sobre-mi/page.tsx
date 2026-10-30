@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
-import { Frase } from "@/components/frase";
-import { phrases } from "@/content/home";
+import { FotoFrase } from "@/components/foto-frase";
 
 export const metadata: Metadata = {
   title: "Sobre mí",
@@ -44,18 +43,37 @@ export default function SobreMi() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl space-y-5 px-4 pb-20 text-lg text-muted">
-        {story.slice(1).map((t) => <p key={t}>{t}</p>)}
+      <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-16 md:grid-cols-2">
+        <div className="space-y-5 text-lg text-muted">
+          {story.slice(1, 3).map((t) => <p key={t}>{t}</p>)}
+        </div>
+        <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+          <Image src="/brand/milu/cuaderno.webp" alt="Manos escribiendo en un cuaderno" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+        </div>
       </section>
 
-      <Frase tone="surface">{phrases[1]}</Frase>
+      <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-20 md:grid-cols-2">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-3xl md:order-1">
+          <Image src="/brand/milu/manos.webp" alt="Manos en una práctica de yoga" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" style={{ objectPosition: "center 40%" }} />
+        </div>
+        <div className="space-y-5 text-lg text-muted md:order-2">
+          {story.slice(3, 5).map((t) => <p key={t}>{t}</p>)}
+        </div>
+      </section>
 
-      <section className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-20 md:grid-cols-[1.3fr_1fr]">
+      <FotoFrase src="/brand/milu/grupo.webp" position="center 60%" alt="Un grupo practicando yoga">{story[6]}</FotoFrase>
+
+      <section className="mx-auto max-w-3xl space-y-5 px-4 py-20 text-lg text-muted">
+        <p>{story[5]}</p>
+        {vision.slice(0, 4).map((t) => <p key={t}>{t}</p>)}
+      </section>
+
+      <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-20 md:grid-cols-[1.3fr_1fr]">
         <div className="space-y-5 text-lg text-muted">
-          {vision.map((t) => <p key={t}>{t}</p>)}
+          <p>{vision[4]}</p>
+          <p>{vision[5]}</p>
           <p className="font-serif text-3xl italic text-foreground">Me gusta pensar que estamos acá para aprender a escucharnos, descubrir qué nos hace bien y encontrar nuestro propio camino del corazón.</p>
-          <p>Si algo de todo esto resuena con vos, me alegra que nos hayamos encontrado.</p>
-          <p>Bienvenidx a este espacio.</p>
+          <p>Si algo de todo esto resuena con vos, me alegra que nos hayamos encontrado. Bienvenidx a este espacio.</p>
           <p className="font-serif text-2xl text-foreground">Con amor, Milu.</p>
         </div>
         <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">

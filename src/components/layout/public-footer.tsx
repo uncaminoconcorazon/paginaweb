@@ -4,13 +4,13 @@ import { instagram, publicNav, site } from "@/lib/site";
 
 export function PublicFooter() {
   return (
-    <footer className="mt-24 border-t border-border bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:grid-cols-[1fr_auto]">
+    <footer className="mt-0 border-t border-border bg-surface">
+      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-[minmax(0,16rem)_1fr]">
         <div className="flex items-start gap-3">
-          <Image src="/brand/logo.png" alt="" width={44} height={46} />
+          <Image src="/brand/logo.png" alt="" width={44} height={46} className="shrink-0" />
           <p className="max-w-xs text-sm text-muted">Encontrar tu propio camino. Habitar tu cuerpo. Volver a lo esencial.</p>
         </div>
-        <nav aria-label="Pie de página" className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+        <nav aria-label="Pie de página" className="flex flex-wrap content-start gap-x-6 gap-y-3 text-sm md:justify-end">
           {publicNav.map((i) => <Link key={i.href} href={i.href} className="underline-offset-4 hover:underline">{i.label}</Link>)}
           <Link href="/tienda" className="underline-offset-4 hover:underline">Tienda</Link>
           <a href={instagram.href} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">Instagram {instagram.handle}</a>
