@@ -69,8 +69,8 @@ export default function SobreMi() {
           <p>{story[5]}</p>
           <p>{vision[0]}</p>
         </div>
-        <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
-          <Image src="/brand/milu/retrato.webp" alt="Milu respirando con la mano sobre el rostro durante una práctica" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" style={{ objectPosition: "center 35%" }} />
+        <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl">
+          <Image src="/brand/milu/alimentacion.webp" alt="Milu en una feria con tortas y galletitas veganas de su proyecto de alimentación natural" fill sizes="(min-width: 768px) 448px, 100vw" className="object-cover" style={{ objectPosition: "center 30%" }} />
         </div>
       </section>
 
