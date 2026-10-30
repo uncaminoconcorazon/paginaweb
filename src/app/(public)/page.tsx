@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
 import { Cinta } from "@/components/cinta";
+import { Fila } from "@/components/fila";
 import { FotoFrase } from "@/components/foto-frase";
 import { PlanCards } from "@/components/plan-cards";
 import { castanedaShort, challenge, cinta, homeHero as h, invitationShort, phrases, tiles, wish } from "@/content/home";
@@ -50,19 +51,12 @@ export default function Home() {
       <FotoFrase src="/brand/casa/meditacion.webp" position="center 55%" alt="Meditación grupal en Casa Corazón">{phrases[0]}</FotoFrase>
 
       {/* Sobre mí */}
-      <section className="bg-surface px-4 py-16 md:py-24">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[1fr_1.2fr]">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
-            <Image src="/brand/milu/pose.webp" alt="Milu practicando una postura de equilibrio con una cinta" fill sizes="(min-width: 768px) 480px, 100vw" className="object-cover" />
-          </div>
-          <div>
-            <p className={eyebrow}>Sobre mí</p>
-            <h2 className="mt-3 text-4xl md:text-5xl">Holi, soy Milu.</h2>
-            <p className="mt-5 text-lg text-muted">Profesora de yoga y artista. Comparto el yoga junto al arte, la escritura y la alimentación, para llevarlo a la vida cotidiana.</p>
-            <div className="mt-6"><ButtonLink href="/sobre-mi" variant="secondary">Conocer mi historia</ButtonLink></div>
-          </div>
-        </div>
-      </section>
+      <Fila src="/brand/milu/cuenco.webp" position="center 30%" alt="Milu con un cuenco tibetano" tone="surface">
+        <p className={eyebrow}>Sobre mí</p>
+        <h2 className="mt-3 text-4xl md:text-5xl">Holi, soy Milu.</h2>
+        <p className="mt-5 text-lg text-muted">Profesora de yoga y artista. Comparto el yoga junto al arte, la escritura y la alimentación, para llevarlo a la vida cotidiana.</p>
+        <div className="mt-6"><ButtonLink href="/sobre-mi" variant="secondary">Conocer mi historia</ButtonLink></div>
+      </Fila>
 
       {/* La membresía, en fotos */}
       <section className="mx-auto max-w-6xl px-4 py-16 md:py-24">
@@ -81,11 +75,18 @@ export default function Home() {
             </li>
           ))}
         </ul>
-        <div className="mt-8"><ButtonLink href="/planes" variant="secondary">Ver todo lo que incluye</ButtonLink></div>
       </section>
 
+      {/* En vivo */}
+      <Fila src="/brand/casa/estiramiento.webp" position="center 55%" alt="Práctica grupal de estiramiento con cintas" invertir tone="surface">
+        <p className={eyebrow}>Encuentros en vivo</p>
+        <h2 className="mt-3 text-4xl md:text-5xl">Practicar juntxs, una vez por semana.</h2>
+        <p className="mt-5 text-lg text-muted">Con el plan de encuentros en vivo sumás una práctica semanal conmigo por Zoom. Queda grabada, por si ese día no podés.</p>
+        <div className="mt-6"><ButtonLink href="/planes#planes" variant="secondary">Ver los planes</ButtonLink></div>
+      </Fila>
+
       {/* Planes */}
-      <section className="mx-auto max-w-6xl px-4 pb-16 md:pb-24">
+      <section className="mx-auto max-w-6xl px-4 py-16 md:py-24">
         <p className={eyebrow}>Planes</p>
         <h2 className="mt-3 max-w-xl text-4xl md:text-5xl">Tu camino puede empezar hoy.</h2>
         <div className="mt-10"><PlanCards /></div>
@@ -94,25 +95,33 @@ export default function Home() {
       <FotoFrase src="/brand/casa/patio.webp" position="center 45%" alt="El patio de Casa Corazón">{phrases[3]}</FotoFrase>
 
       {/* Casa Corazón */}
-      <section className="mx-auto max-w-6xl px-4 py-16 md:py-24">
-        <div className="grid gap-3 md:grid-cols-[1fr_1fr_1fr]">
-          {["sala", "cuenco", "almohadones"].map((n, i) => (
+      <Fila src="/brand/casa/sala.webp" position="center 60%" alt="La sala de Casa Corazón con bolsters y tacos de madera">
+        <p className={eyebrow}>Tapiales, Buenos Aires</p>
+        <h2 className="mt-3 text-4xl md:text-5xl">Casa Corazón</h2>
+        <p className="font-serif mt-3 text-2xl italic">Una casa para volver al cuerpo. Un espacio para encontrarnos.</p>
+        <p className="mt-5 text-lg text-muted">Mi espacio de yoga: íntimo, luminoso y cuidado con mucho amor.</p>
+        <div className="mt-6"><ButtonLink href="/casa-corazon" variant="secondary">Quiero conocer Casa Corazón</ButtonLink></div>
+      </Fila>
+
+      <section className="mx-auto max-w-6xl px-4 pb-16 md:pb-24">
+        <div className="grid gap-3 md:grid-cols-3">
+          {[["puerta", "Entrada de Casa Corazón"], ["bloques", "Tacos de madera y colchonetas"], ["equilibrio", "Postura de equilibrio en la sala"]].map(([n, alt], i) => (
             <div key={n} className={`relative aspect-[3/4] overflow-hidden rounded-3xl ${i === 1 ? "md:translate-y-8" : ""}`}>
-              <Image src={`/brand/casa/${n}.webp`} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+              <Image src={`/brand/casa/${n}.webp`} alt={alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
             </div>
           ))}
         </div>
-        <div className="mt-16 max-w-2xl">
-          <p className={eyebrow}>Tapiales, Buenos Aires</p>
-          <h2 className="mt-3 text-4xl md:text-5xl">Casa Corazón</h2>
-          <p className="font-serif mt-3 text-2xl italic">Una casa para volver al cuerpo. Un espacio para encontrarnos.</p>
-          <div className="mt-6"><ButtonLink href="/casa-corazon" variant="secondary">Quiero conocer Casa Corazón</ButtonLink></div>
-        </div>
       </section>
+
+      <Fila src="/brand/casa/clase.webp" position="center 55%" alt="Clase en grupo reducido en Casa Corazón" invertir tone="surface">
+        <p className={eyebrow}>Clases presenciales</p>
+        <h2 className="mt-3 text-4xl md:text-5xl">Grupos reducidos, mirada cercana.</h2>
+        <p className="mt-5 text-lg text-muted">Clases semipersonalizadas para acompañar a cada persona y respetar sus posibilidades. Solo venir como sos.</p>
+      </Fila>
 
       {/* Desafío gratuito */}
       <section className="relative isolate overflow-hidden px-4 py-20 text-[#f6ebd8] md:py-28">
-        <Image src="/brand/casa/brazos.webp" alt="" fill sizes="100vw" className="-z-10 object-cover" style={{ objectPosition: "center 25%" }} />
+        <Image src="/brand/casa/perro.webp" alt="" fill sizes="100vw" className="-z-10 object-cover" style={{ objectPosition: "center 40%" }} />
         <div aria-hidden className="absolute inset-0 -z-10 bg-[#2b3322]/75" />
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-[11px] uppercase tracking-[0.28em] opacity-80">{challenge.eyebrow}</p>

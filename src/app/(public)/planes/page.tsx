@@ -7,8 +7,8 @@ import { PlanCards } from "@/components/plan-cards";
 import { cinta, faqs, membership, phrases } from "@/content/home";
 
 const fotos: Record<string, [string, string]> = {
-  A: ["/brand/casa/brazos.webp", "center 30%"], B: ["/brand/milu/pose.webp", "center 40%"], C: ["/brand/casa/meditacion.webp", "center 60%"],
-  E: ["/brand/milu/cuaderno.webp", "center"], F: ["/brand/milu/manos.webp", "center 40%"], G: ["/brand/casa/patio.webp", "center 50%"],
+  A: ["/brand/casa/brazos.webp", "center 30%"], B: ["/brand/casa/clase.webp", "center 50%"], C: ["/brand/casa/meditacion.webp", "center 60%"],
+  E: ["/brand/milu/cuaderno.webp", "center"], F: ["/brand/casa/manos.webp", "center 40%"], G: ["/brand/casa/patio.webp", "center 50%"],
 };
 
 export const metadata: Metadata = {

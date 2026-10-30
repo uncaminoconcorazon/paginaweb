@@ -39,7 +39,7 @@ export default function SobreMi() {
           <p className="mt-6 max-w-md text-lg text-muted">{story[0]}</p>
         </div>
         <div className="relative order-1 aspect-[4/5] overflow-hidden rounded-[2rem] md:order-2">
-          <Image src="/brand/milu/pose.webp" alt="Milu practicando una postura de equilibrio con una cinta" fill priority sizes="(min-width: 768px) 560px, 100vw" className="object-cover" />
+          <Image src="/brand/milu/cuenco.webp" alt="Milu con un cuenco tibetano" fill priority sizes="(min-width: 768px) 560px, 100vw" className="object-cover" style={{ objectPosition: "center 30%" }} />
         </div>
       </section>
 
@@ -54,7 +54,7 @@ export default function SobreMi() {
 
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-20 md:grid-cols-2">
         <div className="relative aspect-[4/3] overflow-hidden rounded-3xl md:order-1">
-          <Image src="/brand/milu/manos.webp" alt="Manos en una práctica de yoga" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" style={{ objectPosition: "center 40%" }} />
+          <Image src="/brand/casa/brazos.webp" alt="Milu con los brazos en alto durante una práctica" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" style={{ objectPosition: "center 30%" }} />
         </div>
         <div className="space-y-5 text-lg text-muted md:order-2">
           {story.slice(3, 5).map((t) => <p key={t}>{t}</p>)}
@@ -63,9 +63,28 @@ export default function SobreMi() {
 
       <FotoFrase src="/brand/milu/grupo.webp" position="center 60%" alt="Un grupo practicando yoga">{story[6]}</FotoFrase>
 
-      <section className="mx-auto max-w-3xl space-y-5 px-4 py-20 text-lg text-muted">
-        <p>{story[5]}</p>
-        {vision.slice(0, 4).map((t) => <p key={t}>{t}</p>)}
+      <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-20 md:grid-cols-2">
+        <div className="space-y-5 text-lg text-muted">
+          <p>{story[5]}</p>
+          <p>{vision[0]}</p>
+        </div>
+        <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+          <Image src="/brand/milu/retrato.webp" alt="Milu respirando con la mano sobre el rostro durante una práctica" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" style={{ objectPosition: "center 35%" }} />
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-20 md:grid-cols-2">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+          <Image src="/brand/casa/manos.webp" alt="Manos en una práctica de yoga" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" style={{ objectPosition: "center 40%" }} />
+        </div>
+        <div className="space-y-5 text-lg text-muted">
+          <p>{vision[1]}</p>
+          <p>{vision[2]}</p>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-3xl space-y-5 px-4 pb-20 text-lg text-muted">
+        <p>{vision[3]}</p>
       </section>
 
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-20 md:grid-cols-[1.3fr_1fr]">
@@ -77,7 +96,7 @@ export default function SobreMi() {
           <p className="font-serif text-2xl text-foreground">Con amor, Milu.</p>
         </div>
         <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
-          <Image src="/brand/milu/retrato.webp" alt="Milu respirando con la mano sobre el rostro durante una práctica" fill sizes="(min-width: 768px) 420px, 100vw" className="object-cover" />
+          <Image src="/brand/milu/pose.webp" alt="Milu practicando una postura de equilibrio con una cinta" fill sizes="(min-width: 768px) 420px, 100vw" className="object-cover" />
         </div>
       </section>
 

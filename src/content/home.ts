@@ -138,8 +138,8 @@ export const invitationShort = [
 
 export const tiles = [
   { title: "Yoga para cada momento", text: "Vinyasa, Hatha, suave y restaurativo.", img: "/brand/casa/brazos.webp", pos: "center 30%" },
-  { title: "Clases de 20 y 60 minutos", text: "Cortas para el día a día, largas para profundizar.", img: "/brand/milu/pose.webp", pos: "center 40%" },
-  { title: "Meditaciones guiadas", text: "Un refugio al que volver cuando lo necesites.", img: "/brand/casa/meditacion.webp", pos: "center 60%" },
+  { title: "Clases de 20 y 60 minutos", text: "Cortas para el día a día, largas para profundizar.", img: "/brand/casa/clase.webp", pos: "center 50%" },
+  { title: "Meditaciones guiadas", text: "Un refugio al que volver cuando lo necesites.", img: "/brand/casa/manos.webp", pos: "center 40%" },
   { title: "Alimentación consciente", text: "Recetas, ideas y consejos para nutrirte con calma.", img: null, pos: "center" },
   { title: "Escritura creativa y arte", text: "Propuestas para escucharte creando.", img: "/brand/milu/cuaderno.webp", pos: "center" },
   { title: "Comunidad", text: "Programas mensuales y un grupo de WhatsApp para compartir.", img: "/brand/milu/grupo.webp", pos: "center 60%" },

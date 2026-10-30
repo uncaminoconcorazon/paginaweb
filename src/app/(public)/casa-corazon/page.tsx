@@ -10,9 +10,10 @@ export const metadata: Metadata = {
 };
 
 const fotos = [
-  ["puerta", "Entrada de Casa Corazón"], ["almohadones", "Bolsters y almohadones sobre las colchonetas"], ["brazos", "Práctica de yoga con los brazos en alto"],
-  ["meditacion", "Meditación grupal"], ["cuenco", "Cuenco tibetano"], ["bolster", "Bolster y velas en la sala"],
-  ["sala", "La sala con ladrillos de yoga"], ["patio", "El patio de la casa"],
+  ["puerta", "Entrada de Casa Corazón"], ["sala", "La sala con bolsters y tacos de madera"], ["patio", "El patio de la casa"],
+  ["clase", "Clase en grupo reducido"], ["perro", "Perro boca abajo sobre la colchoneta"], ["meditacion", "Meditación grupal"],
+  ["estiramiento", "Estiramiento grupal con cintas"], ["flexion", "Flexión hacia adelante con tacos"], ["equilibrio", "Postura de equilibrio en la sala"],
+  ["manos", "Manos en oración junto a un taco"], ["bloques", "Tacos de madera y colchonetas"], ["almohadones", "Bolsters y almohadones sobre las colchonetas"],
 ] as const;
 
 const text = [
@@ -34,7 +35,7 @@ export default function CasaCorazon() {
 
       <section className="mx-auto max-w-6xl px-4">
         <div className="grid gap-3 md:grid-cols-3">
-          {["sala", "cuenco", "puerta"].map((n, i) => (
+          {["puerta", "sala", "patio"].map((n, i) => (
             <div key={n} className={`relative aspect-[3/4] overflow-hidden rounded-3xl ${i === 1 ? "md:translate-y-8" : ""}`}>
               <Image src={`/brand/casa/${n}.webp`} alt={fotos.find((f) => f[0] === n)?.[1] ?? ""} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
             </div>
@@ -46,11 +47,11 @@ export default function CasaCorazon() {
         {text.map((t) => <p key={t}>{t}</p>)}
       </section>
 
-      <FotoFrase src="/brand/casa/almohadones.webp" position="center 55%" alt="Bolsters y almohadones sobre las colchonetas">Porque cuando hacemos espacio para escucharnos, algo empieza a cambiar.</FotoFrase>
+      <FotoFrase src="/brand/casa/meditacion.webp" position="center 55%" alt="Meditación grupal en Casa Corazón">Porque cuando hacemos espacio para escucharnos, algo empieza a cambiar.</FotoFrase>
 
       <section className="mx-auto max-w-6xl px-4 py-16">
         <div className="columns-2 gap-3 md:columns-3 [&>div]:mb-3">
-          {fotos.filter((f) => !["sala", "cuenco", "puerta", "almohadones"].includes(f[0])).map(([n, alt]) => (
+          {fotos.filter((f) => !["puerta", "sala", "patio", "meditacion"].includes(f[0])).map(([n, alt]) => (
             <div key={n} className="relative break-inside-avoid overflow-hidden rounded-2xl">
               <Image src={`/brand/casa/${n}.webp`} alt={alt} width={1064} height={1600} sizes="(min-width: 768px) 33vw, 50vw" className="h-auto w-full" />
             </div>
