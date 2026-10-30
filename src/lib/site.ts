@@ -4,12 +4,14 @@ export const site = {
 };
 
 export const publicNav = [
+  { href: "/", label: "Inicio" },
+  { href: "/planes", label: "La membresía" },
+  { href: "/desafio", label: "Desafío gratuito" },
   { href: "/sobre-mi", label: "Sobre mí" },
   { href: "/casa-corazon", label: "Casa Corazón" },
-  { href: "/planes", label: "Comunidad" },
-  { href: "/desafio", label: "Desafío gratis" },
-  { href: "/tienda", label: "Tienda" },
 ];
+
+export const instagram = { handle: "@un.camino.con.corazon", href: "https://www.instagram.com/un.camino.con.corazon/" };
 
 export const memberNav = [
   { href: "/inicio", label: "Inicio" },

@@ -1,19 +1,33 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
+import { Frase } from "@/components/frase";
+import { phrases } from "@/content/home";
 
 export const metadata: Metadata = {
   title: "Sobre mí",
-  description: "Soy Milu. Comparto el yoga, la alimentación, la naturaleza y el arte como herramientas para habitar un mundo interno más sincero.",
+  description: "Holi, soy Milu. Profesora de yoga, artista y una eterna curiosa de las formas que encontramos para expresarnos, conocernos y habitar este mundo.",
 };
 
 const eyebrow = "text-[11px] uppercase tracking-[0.28em] text-muted";
 
-const herramientas = [
-  { title: "Yoga", text: "Movimiento y respiración, en clases cortas o largas, para practicar a tu ritmo.", color: "bg-olive" },
-  { title: "Alimentación", text: "Recetas y consejos simples para nutrirte con calma.", color: "bg-orange" },
-  { title: "Arte", text: "Escritura, poesía y expresión corporal para poner en palabras y en movimiento lo que sentís.", color: "bg-mauve" },
-  { title: "Naturaleza", text: "Volver a la tierra, a sus ritmos y a la presencia en lo cotidiano.", color: "bg-accent" },
+const story = [
+  "Soy profesora de yoga, artista y una eterna curiosa de las formas que encontramos para expresarnos, conocernos y habitar este mundo.",
+  "Desde muy chica, el arte ocupa un lugar fundamental en mi vida. Comencé a estudiar canto, teatro y comedia musical, y hoy estoy a punto de terminar la carrera de Actuación en la Universidad Nacional de las Artes.",
+  "El arte siempre fue para mí una manera de explorar lo invisible, de poner el cuerpo, de jugar, de transformar lo que sentimos y de descubrir nuevas formas de mirar la realidad.",
+  "Con el tiempo, el yoga llegó a mi vida y abrió otra puerta. Me formé como profesora de Hatha Yoga y Yoga Terapéutico, y encontré en esta práctica un espacio para escuchar el cuerpo, observar la mente y cultivar una relación más amorosa conmigo misma.",
+  "También me apasiona la escritura. Me gusta escribir poesía, explorar la escritura creativa y descubrir cómo, a veces, las palabras pueden ayudarnos a darle forma a aquello que todavía no sabemos nombrar.",
+  "Durante cinco años formé parte de un proyecto de alimentación natural y vegana, una experiencia que me permitió acompañar a otras personas desde otra dimensión del cuidado: la alimentación.",
+  "Todas estas búsquedas, que durante mucho tiempo parecían caminos separados, empezaron a encontrarse.",
+];
+
+const vision = [
+  "Hoy me dedico a compartir el yoga, pero no puedo pensarlo separado del arte, de la alimentación, de la naturaleza ni de la manera en que elegimos vivir nuestros días.",
+  "Creo que hay muchas formas de encontrar medicina en nosotrxs. A veces aparece en una postura de yoga; otras, en una comida preparada con amor, en una canción, en una página escrita a mano, en una conversación sincera o en un rato de silencio.",
+  "Me interesa explorar cómo esas experiencias pueden ayudarnos a construir una vida más conectada con nuestra esencia. No una vida perfecta. No una versión ideal de nosotrxs. Una vida que se sienta más propia.",
+  "Por eso nace Un camino con corazón: como un espacio desde el cual compartir las prácticas, las preguntas y las herramientas que a mí también me acompañan en esta búsqueda.",
+  "Mi intención no es enseñarte a vivir, sino acercarte experiencias que puedan inspirarte a descubrir tu propia manera de hacerlo.",
+  "Que lo que suceda durante una práctica pueda acompañarte después, cuando estés cocinando, caminando, trabajando, descansando o encontrándote con otras personas. Que el yoga deje de ser solamente algo que hacemos sobre un mat y se convierta, de a poquito, en una forma de estar presentes en la vida.",
 ];
 
 export default function SobreMi() {
@@ -22,63 +36,39 @@ export default function SobreMi() {
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-10 md:grid-cols-2 md:py-20">
         <div className="order-2 md:order-1">
           <p className={eyebrow}>Sobre mí</p>
-          <h1 className="mt-4 text-5xl leading-[1.05] sm:text-6xl">Soy Milu</h1>
-          <p className="mt-6 max-w-md text-lg text-muted">
-            Acompaño con yoga, y también con otras herramientas que para mí son medicina. Mi deseo es que al llegar sientas paz, y que te sientas contenida e identificada.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <ButtonLink href="/planes">Conocer la comunidad</ButtonLink>
-            <ButtonLink href="/casa-corazon" variant="secondary">Conocer Casa Corazón</ButtonLink>
-          </div>
+          <h1 className="mt-4 text-6xl leading-[1.05] sm:text-7xl">Holi, soy Milu.</h1>
+          <p className="mt-6 max-w-md text-lg text-muted">{story[0]}</p>
         </div>
         <div className="relative order-1 aspect-[4/5] overflow-hidden rounded-[2rem] md:order-2">
           <Image src="/brand/milu/pose.webp" alt="Milu practicando una postura de equilibrio con una cinta" fill priority sizes="(min-width: 768px) 560px, 100vw" className="object-cover" />
         </div>
       </section>
 
-      <section className="bg-surface py-20">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-[1fr_1.2fr]">
-          <div>
-            <p className={eyebrow}>Lo que me hace particular</p>
-            <h2 className="mt-3 text-4xl">Yoga bajado a la tierra</h2>
-          </div>
-          <div className="space-y-4 text-muted">
-            <p>Para mí, practicar no es solo movernos. Es ir bajando, de a poco, la filosofía del yoga a la vida de todos los días.</p>
-            <p>Por eso, además de las clases, comparto ejercicios puntuales de escritura, meditaciones, recetas y consejos, para que la práctica se apoye en tu rutina real y encuentre un lugar en ella.</p>
-          </div>
+      <section className="mx-auto max-w-3xl space-y-5 px-4 pb-20 text-lg text-muted">
+        {story.slice(1).map((t) => <p key={t}>{t}</p>)}
+      </section>
+
+      <Frase tone="surface">{phrases[1]}</Frase>
+
+      <section className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-20 md:grid-cols-[1.3fr_1fr]">
+        <div className="space-y-5 text-lg text-muted">
+          {vision.map((t) => <p key={t}>{t}</p>)}
+          <p className="font-serif text-3xl italic text-foreground">Me gusta pensar que estamos acá para aprender a escucharnos, descubrir qué nos hace bien y encontrar nuestro propio camino del corazón.</p>
+          <p>Si algo de todo esto resuena con vos, me alegra que nos hayamos encontrado.</p>
+          <p>Bienvenidx a este espacio.</p>
+          <p className="font-serif text-2xl text-foreground">Con amor, Milu.</p>
+        </div>
+        <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
+          <Image src="/brand/milu/retrato.webp" alt="Milu respirando con la mano sobre el rostro durante una práctica" fill sizes="(min-width: 768px) 420px, 100vw" className="object-cover" />
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-20">
-        <p className={eyebrow}>Mis herramientas</p>
-        <h2 className="mt-3 max-w-2xl text-4xl">Cuatro formas de volver a vos</h2>
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {herramientas.map((h) => (
-            <li key={h.title} className="rounded-3xl bg-surface p-6">
-              <span aria-hidden className={`block h-3 w-3 rounded-full ${h.color}`} />
-              <h3 className="mt-4 text-xl">{h.title}</h3>
-              <p className="mt-2 text-sm text-muted">{h.text}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="bg-surface py-20">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 md:grid-cols-[1.2fr_1fr]">
-          <blockquote className="border-l-2 border-mauve pl-5 text-lg leading-relaxed">
-            Quiero que las personas sientan paz al entrar, que se sientan contenidas e identificadas. Compartir desde mi experiencia y formación las herramientas que considero medicina, para construir un mundo interno más habitable y sincero.
-          </blockquote>
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
-            <Image src="/brand/milu/retrato.webp" alt="Milu respirando con la mano sobre el rostro durante una práctica" fill sizes="(min-width: 768px) 420px, 100vw" className="object-cover" />
-          </div>
+      <section className="bg-surface px-4 py-20 text-center">
+        <h2 className="text-4xl">Practiquemos juntxs</h2>
+        <div className="mt-7 flex flex-wrap justify-center gap-3">
+          <ButtonLink href="/planes">Conocé la membresía</ButtonLink>
+          <ButtonLink href="/desafio" variant="secondary">Empezá con el desafío gratuito</ButtonLink>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-4xl px-4 py-20 text-center">
-        <p className={eyebrow}>Para empezar sin compromiso</p>
-        <h2 className="mt-3 text-4xl">Practiquemos juntas</h2>
-        <p className="mx-auto mt-4 max-w-xl text-muted">Podés empezar con 15 días de yoga, gratis, y ver cómo te sienta.</p>
-        <div className="mt-7 flex justify-center"><ButtonLink href="/desafio">Sumarme al desafío</ButtonLink></div>
       </section>
     </>
   );

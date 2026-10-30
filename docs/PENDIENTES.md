@@ -27,3 +27,11 @@
 - [ ] Más fotos de Milu si quiere sumar (hay 5 en `public/brand/milu/`: `retrato`, `pose`, `cuaderno`, `manos`, `grupo`).
 - [ ] Foto del bolster verde rayado (tienda).
 - [ ] Días y horarios de los encuentros presenciales en Casa Corazón (Humahuaca 377, Tapiales).
+
+## Textos y precios (documento "PROYECTO WEB: UN CAMINO CON CORAZÓN")
+- Textos de inicio, membresía, desafío, Sobre mí, Casa Corazón, preguntas frecuentes y frases: cargados desde el documento de Milu.
+- Precios confirmados: Membresía esencial $40.000 ARS/mes; con encuentros en vivo $50.000 ARS/mes (migración `20261030000005`).
+- [ ] Menú: el documento no incluye Tienda; hoy está solo en el pie de página. Decidir si va en el menú.
+- [ ] "Contacto" del pie apunta a Instagram (@un.camino.con.corazon) hasta tener otro canal (email/WhatsApp).
+- [ ] Tipografía serif (Cormorant Garamond) provisoria para títulos: confirmar con Milu.
+- [ ] Mercado Pago, cancelación de renovación desde la cuenta y acceso a grabaciones de Zoom: aún sin implementar (la web lo indica como "muy pronto").

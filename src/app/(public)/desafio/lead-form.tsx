@@ -13,7 +13,7 @@ export function LeadForm() {
       <input name="website" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
       {state?.error && <p role="alert" className="text-sm text-danger">{state.error}</p>}
       {state?.ok && <p role="status" className="text-sm text-accent">{state.ok}</p>}
-      <Button type="submit" disabled={pending} className="w-full">{pending ? "Enviando…" : "Quiero sumarme"}</Button>
+      <Button type="submit" disabled={pending} className="w-full">{pending ? "Enviando…" : "Quiero hacer el desafío gratis"}</Button>
     </form>
   );
 }

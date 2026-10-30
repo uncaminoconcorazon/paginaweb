@@ -1,19 +1,21 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
+import { Frase } from "@/components/frase";
 import { PlanCards } from "@/components/plan-cards";
-import { homeHero as h, inside, needs, pillars } from "@/content/home";
+import { castanedaQuote, challenge, homeHero as h, invitation, membership, phrases, wish } from "@/content/home";
 
 const eyebrow = "text-[11px] uppercase tracking-[0.28em] text-muted";
 
 export default function Home() {
   return (
     <>
-      {/* 1 · La necesidad: lo primero que ve la persona */}
+      {/* Portada: la pregunta */}
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-10 md:grid-cols-2 md:py-20">
         <div className="order-2 md:order-1">
           <p className={eyebrow}>Un camino con corazón</p>
-          <h1 className="mt-4 text-5xl leading-[1.05] sm:text-6xl">{h.title}</h1>
-          <p className="mt-6 max-w-md text-lg text-muted">{h.subtitle}</p>
+          <h1 className="mt-4 text-5xl leading-[1.05] sm:text-7xl">{h.question}</h1>
+          <p className="font-serif mt-5 text-2xl italic text-muted">{h.tagline}</p>
+          <p className="mt-6 max-w-md text-lg text-muted">{h.lead}</p>
           <div className="mt-9 flex flex-wrap gap-3">
             <ButtonLink href={h.primaryCta.href}>{h.primaryCta.label}</ButtonLink>
             <ButtonLink href={h.secondaryCta.href} variant="secondary">{h.secondaryCta.label}</ButtonLink>
@@ -24,66 +26,80 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2 · Comprensión: "esto habla de algo que estoy viviendo" */}
-      <section className="bg-surface py-20">
-        <div className="mx-auto max-w-6xl px-4">
-          <p className={eyebrow}>Quizás te suene</p>
-          <h2 className="mt-3 max-w-2xl text-4xl">Algo de esto puede ser parte de tu día</h2>
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {needs.map((n, i) => (
-              <li key={n.title} className="rounded-3xl border border-border bg-background p-6">
-                <span className="text-sm text-muted">0{i + 1}</span>
-                <h3 className="mt-3 text-xl">{n.title}</h3>
-                <p className="mt-2 text-sm text-muted">{n.text}</p>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-10 max-w-xl text-lg">Para todo eso hay lugar acá, a tu ritmo y sin apuro.</p>
-        </div>
+      {/* Cita de Castaneda */}
+      <section className="bg-surface px-4 py-20 md:py-28">
+        <figure className="mx-auto max-w-3xl">
+          <blockquote className="font-serif space-y-4 border-l-2 border-mauve pl-6 text-2xl italic leading-relaxed md:text-3xl">
+            {castanedaQuote.text.map((t) => <p key={t}>{t}</p>)}
+          </blockquote>
+          <figcaption className="mt-6 pl-6 text-sm text-muted">— {castanedaQuote.author}</figcaption>
+        </figure>
       </section>
 
-      {/* 3 · Solución */}
-      <section id="experiencia" className="mx-auto max-w-6xl px-4 py-20">
-        <p className={eyebrow}>La propuesta</p>
-        <h2 className="mt-3 max-w-2xl text-4xl">Yoga bajado a la tierra</h2>
-        <p className="mt-4 max-w-2xl text-muted">No es solo movernos. De a poco, a través de las clases, de ejercicios puntuales de escritura, de meditaciones, recetas y consejos, llevamos la filosofía del yoga a la práctica diaria de tu vida.</p>
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {pillars.map((p) => (
-            <li key={p.title} className="rounded-3xl bg-surface p-6">
-              <span aria-hidden className={`block h-3 w-3 rounded-full ${p.color}`} />
-              <h3 className="mt-4 text-xl">{p.title}</h3>
-              <p className="mt-2 text-sm text-muted">{p.text}</p>
+      {/* La invitación */}
+      <section className="mx-auto max-w-3xl px-4 py-20 md:py-28">
+        <div className="space-y-5 text-lg text-muted">
+          {invitation.map((t) => <p key={t}>{t}</p>)}
+        </div>
+        <p className="font-serif mt-10 text-3xl leading-snug md:text-4xl">{wish}</p>
+        <p className="mt-6 text-lg">Bienvenidx a Un camino con corazón.</p>
+      </section>
+
+      <Frase tone="accent">{phrases[0]}</Frase>
+
+      {/* La membresía */}
+      <section className="mx-auto max-w-6xl px-4 py-20 md:py-28">
+        <p className={eyebrow}>La membresía</p>
+        <h2 className="mt-3 max-w-3xl text-4xl md:text-5xl">{membership.title}</h2>
+        <div className="mt-6 max-w-2xl space-y-3 text-muted">
+          {membership.intro.map((t) => <p key={t}>{t}</p>)}
+        </div>
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {membership.includes.map((i) => (
+            <li key={i.title} className="rounded-3xl bg-surface p-6">
+              <span className="text-sm text-muted">{i.letter}</span>
+              <h3 className="mt-2 text-2xl">{i.title}</h3>
+              <p className="mt-2 text-sm text-muted">{i.text}</p>
             </li>
           ))}
         </ul>
+        <p className="font-serif mt-10 text-2xl italic">{membership.closing}</p>
+        <div className="mt-6"><ButtonLink href="/planes">Conocé la membresía</ButtonLink></div>
       </section>
 
-      {/* 4 · Qué hay adentro */}
-      <section className="bg-accent py-20 text-accent-foreground">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-[1fr_1.2fr]">
+      <Frase tone="surface">{phrases[3]}</Frase>
+
+      {/* Desafío gratuito: puerta de entrada */}
+      <section className="bg-accent px-4 py-20 text-accent-foreground md:py-28">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[1.2fr_1fr]">
           <div>
-            <p className="text-[11px] uppercase tracking-[0.28em] opacity-80">Adentro de la comunidad</p>
-            <h2 className="mt-3 text-4xl">Todo en un mismo lugar</h2>
-            <p className="mt-4 max-w-sm opacity-90">Material que se renueva y propuestas nuevas cada mes, para que siempre haya algo para sumar a tu práctica.</p>
+            <p className="text-[11px] uppercase tracking-[0.28em] opacity-80">{challenge.eyebrow}</p>
+            <h2 className="mt-3 text-4xl md:text-5xl">{challenge.title}</h2>
+            <p className="mt-5 max-w-xl text-lg opacity-90">{challenge.text[0]}</p>
+            <p className="mt-3 max-w-xl opacity-90">{challenge.text[1]}</p>
+            <ul className="mt-6 flex flex-wrap gap-2 text-sm">
+              {challenge.how.map((c) => <li key={c} className="rounded-full border border-accent-foreground/40 px-4 py-2">{c}</li>)}
+            </ul>
+            <p className="font-serif mt-8 text-2xl italic">{challenge.closing}</p>
+            <div className="mt-6"><a href="/desafio" className="inline-flex min-h-11 items-center justify-center rounded-full bg-accent-foreground px-6 text-sm font-medium text-accent">{challenge.cta}</a></div>
           </div>
-          <ul className="space-y-3">
-            {inside.map((t) => (
-              <li key={t} className="flex gap-3 border-b border-accent-foreground/20 pb-3 text-[15px]">
-                <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-lime" />{t}
-              </li>
-            ))}
-          </ul>
+          <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem]">
+            <Image src="/brand/casa/brazos.webp" alt="Práctica de yoga con los brazos en alto" fill sizes="(min-width: 768px) 420px, 100vw" className="object-cover" />
+          </div>
         </div>
       </section>
 
-      {/* 5 · Casa Corazón */}
-      <section className="mx-auto max-w-6xl px-4 py-20">
+      <Frase tone="plain">{phrases[5]}</Frase>
+
+      {/* Casa Corazón */}
+      <section className="mx-auto max-w-6xl px-4 pb-20 md:pb-28">
         <div className="grid items-end gap-8 md:grid-cols-[1fr_1.4fr]">
           <div>
-            <p className={eyebrow}>El espacio</p>
-            <h2 className="mt-3 text-4xl">Casa Corazón</h2>
-            <p className="mt-4 text-muted">Un lugar de luz natural y madera, pensado para practicar con calma y encontrarnos.</p>
-            <div className="mt-6"><ButtonLink href="/casa-corazon" variant="secondary">Conocer la casa</ButtonLink></div>
+            <p className={eyebrow}>Tapiales, Buenos Aires</p>
+            <h2 className="mt-3 text-4xl md:text-5xl">Casa Corazón</h2>
+            <p className="font-serif mt-4 text-2xl italic">Una casa para volver al cuerpo. Un espacio para encontrarnos.</p>
+            <p className="mt-4 text-muted">Mi espacio de yoga: un lugar íntimo, creado y cuidado con mucho amor, donde cada encuentro es una invitación a bajar el ritmo, escuchar el cuerpo y regalarnos un momento de presencia.</p>
+            <div className="mt-6"><ButtonLink href="/casa-corazon" variant="secondary">Quiero conocer Casa Corazón</ButtonLink></div>
           </div>
           <div className="grid grid-cols-3 gap-3">
             {["almohadones", "meditacion", "cuenco"].map((n, i) => (
@@ -95,37 +111,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6 · Quién acompaña */}
-      <section className="bg-surface py-20">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 md:grid-cols-[1fr_1.2fr]">
+      {/* Sobre mí */}
+      <section className="bg-surface px-4 py-20 md:py-28">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-[1fr_1.2fr]">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
             <Image src="/brand/milu/pose.webp" alt="Milu practicando una postura de equilibrio con una cinta" fill sizes="(min-width: 768px) 480px, 100vw" className="object-cover" />
           </div>
           <div>
-            <p className={eyebrow}>Quién te acompaña</p>
-            <h2 className="mt-3 text-4xl">Milu</h2>
-            <blockquote className="mt-5 border-l-2 border-mauve pl-5 text-lg leading-relaxed">
-              Quiero que las personas sientan paz al entrar, que se sientan contenidas e identificadas. Compartir desde mi experiencia y formación las herramientas que considero medicina: el yoga, la alimentación, la naturaleza y el arte, para construir un mundo interno más habitable y sincero.
-            </blockquote>
-            <div className="mt-6"><ButtonLink href="/sobre-mi" variant="secondary">Conocer más sobre mí</ButtonLink></div>
+            <p className={eyebrow}>Sobre mí</p>
+            <h2 className="mt-3 text-4xl md:text-5xl">Holi, soy Milu.</h2>
+            <p className="mt-5 text-lg text-muted">Soy profesora de yoga, artista y una eterna curiosa de las formas que encontramos para expresarnos, conocernos y habitar este mundo.</p>
+            <p className="font-serif mt-5 border-l-2 border-mauve pl-5 text-2xl italic">Me gusta pensar que estamos acá para aprender a escucharnos, descubrir qué nos hace bien y encontrar nuestro propio camino del corazón.</p>
+            <div className="mt-6"><ButtonLink href="/sobre-mi" variant="secondary">Conocer mi historia</ButtonLink></div>
           </div>
         </div>
       </section>
 
-      {/* 7 · Puerta de entrada gratuita */}
-      <section className="mx-auto max-w-4xl px-4 py-20 text-center">
-        <p className={eyebrow}>Para empezar sin compromiso</p>
-        <h2 className="mt-3 text-4xl">15 días de yoga, gratis</h2>
-        <p className="mx-auto mt-4 max-w-xl text-muted">Un desafío para encontrarte con tu cuerpo un ratito cada día, con meditaciones que te acompañan. Dejanos tu correo y te avisamos.</p>
-        <div className="mt-7 flex justify-center"><ButtonLink href="/desafio">Sumarme al desafío</ButtonLink></div>
-      </section>
-
-      {/* 8 · Oferta */}
-      <section className="mx-auto max-w-6xl px-4 pb-8">
-        <p className={eyebrow}>Membresía</p>
-        <h2 className="mt-3 max-w-xl text-4xl">Elegí cómo acompañarte</h2>
+      {/* Planes */}
+      <section className="mx-auto max-w-6xl px-4 py-20 md:py-28">
+        <p className={eyebrow}>Planes de membresía</p>
+        <h2 className="mt-3 max-w-xl text-4xl md:text-5xl">Tu camino puede empezar hoy.</h2>
+        <p className="mt-3 max-w-xl text-muted">No hay una opción mejor que otra. Se trata de elegir la que mejor acompañe tu momento y tu manera de practicar.</p>
         <div className="mt-10"><PlanCards /></div>
       </section>
+
+      <Frase tone="accent">{phrases[12]}</Frase>
     </>
   );
 }

@@ -15,19 +15,19 @@ export async function PublicHeader() {
         </Link>
         <nav aria-label="Principal" className="flex items-center gap-1 text-sm">
           {publicNav.map((i) => (
-            <Link key={i.href} href={i.href} className="hidden rounded-full px-3 py-2 hover:bg-border/60 lg:block">{i.label}</Link>
+            <Link key={i.href} href={i.href} className="hidden rounded-full px-3 py-2 hover:bg-border/60 xl:block">{i.label}</Link>
           ))}
           <Link href={viewer ? "/inicio" : "/ingresar"} className="rounded-full px-3 py-2 hover:bg-border/60">
             {viewer ? "Mi espacio" : "Ingresar"}
           </Link>
-          <span className="hidden sm:block"><ButtonLink href="/planes">Comenzar</ButtonLink></span>
-          <details className="relative lg:hidden">
+          <span className="hidden md:block"><ButtonLink href="/planes">Sumarme a la membresía</ButtonLink></span>
+          <details className="relative xl:hidden">
             <summary className="flex min-h-11 cursor-pointer list-none items-center rounded-full px-3 hover:bg-border/60" aria-label="Menú">Menú</summary>
             <div className="absolute right-0 mt-2 w-56 rounded-2xl border border-border bg-surface p-2 shadow-lg">
               {publicNav.map((i) => (
                 <Link key={i.href} href={i.href} className="block rounded-xl px-3 py-3 hover:bg-border/50">{i.label}</Link>
               ))}
-              <Link href="/planes" className="mt-1 block rounded-xl bg-accent px-3 py-3 text-center text-accent-foreground">Comenzar</Link>
+              <Link href="/planes" className="mt-1 block rounded-xl bg-accent px-3 py-3 text-center text-accent-foreground">Sumarme a la membresía</Link>
             </div>
           </details>
         </nav>
