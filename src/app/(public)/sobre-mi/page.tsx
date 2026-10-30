@@ -85,7 +85,7 @@ export default function SobreMi() {
       </section>
 
       <section className="mx-auto max-w-4xl px-4 pb-24 pt-4">
-        <p className="font-serif border-l-2 border-mauve pl-6 text-3xl italic leading-snug text-foreground md:pl-8 md:text-5xl">{vision[3]}</p>
+        <p className="font-serif border-l-2 border-mauve pl-6 text-2xl italic leading-snug text-foreground md:pl-8 md:text-3xl">{vision[3]}</p>
       </section>
 
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-20 md:grid-cols-[1.3fr_1fr]">
