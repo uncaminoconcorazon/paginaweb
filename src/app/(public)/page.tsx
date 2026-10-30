@@ -96,7 +96,7 @@ export default function Home() {
 
       {/* Casa Corazón */}
       <Fila src="/brand/casa/sala.webp" position="center 60%" alt="La sala de Casa Corazón con bolsters y tacos de madera">
-        <p className={eyebrow}>Tapiales, Buenos Aires</p>
+        <p className={eyebrow}>Clases presenciales · Tapiales, Buenos Aires</p>
         <h2 className="mt-3 text-4xl md:text-5xl">Casa Corazón</h2>
         <p className="font-serif mt-3 text-2xl italic">Una casa para volver al cuerpo. Un espacio para encontrarnos.</p>
         <p className="mt-5 text-lg text-muted">Mi espacio de yoga: íntimo, luminoso y cuidado con mucho amor.</p>

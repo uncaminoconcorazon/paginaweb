@@ -7,7 +7,7 @@ export const publicNav = [
   { href: "/", label: "Inicio" },
   { href: "/sobre-mi", label: "Sobre mí" },
   { href: "/planes", label: "La membresía" },
-  { href: "/casa-corazon", label: "Casa Corazón" },
+  { href: "/casa-corazon", label: "Clases presenciales" },
   { href: "/desafio", label: "Desafío gratuito" },
 ];
 
