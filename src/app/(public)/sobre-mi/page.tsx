@@ -75,8 +75,8 @@ export default function SobreMi() {
       </section>
 
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-20 md:grid-cols-2">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
-          <Image src="/brand/casa/manos.webp" alt="Manos en una práctica de yoga" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" style={{ objectPosition: "center 40%" }} />
+        <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl">
+          <Image src="/brand/milu/camino.webp" alt="Milu sonriendo con su mochila y su colchoneta, de viaje por una ruta de montaña" fill sizes="(min-width: 768px) 448px, 100vw" className="object-cover" style={{ objectPosition: "center 55%" }} />
         </div>
         <div className="space-y-5 text-lg text-muted">
           <p>{vision[1]}</p>
