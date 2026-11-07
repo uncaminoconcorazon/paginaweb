@@ -10,7 +10,7 @@
 - [x] Vercel: proyecto `paginaweb` vinculado al repo, sin protección de acceso (sitio público). Variables públicas de Supabase cargadas.
 - [ ] Supabase Auth: Site URL y Redirect URLs (`/auth/callback`), plantillas de email en español.
 - [ ] `SUPABASE_SERVICE_ROLE_KEY`: cargar directo en Vercel solo cuando exista el webhook de pagos.
-- [ ] Plan gratuito de Supabase: pausa el proyecto tras ~7 días sin actividad. Mitigación: cron de Vercel (`vercel.json`) que llama a `/api/mantener-activo` cada 2 días. Evaluar plan Pro antes del lanzamiento.
+- [ ] Plan gratuito de Supabase: pausa el proyecto tras ~7 días sin actividad. Mitigación: cron de Vercel (`vercel.json`) que llama a `/api/mantener-activo` todos los días a las 15:00 UTC. Evaluar plan Pro antes del lanzamiento.
 
 ## Decisiones de negocio
 - [ ] País/mercado y proveedor de pagos recurrentes; planes y precios; política de cancelación/reembolso.
