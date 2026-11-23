@@ -2,6 +2,7 @@
 
 /* Paleta oficial: Branding_Mile.pdf. Los neutros (foreground/muted/border) son derivados para legibilidad. */
 :root {
+  color-scheme: light; /* respaldo para navegadores que no entienden "only light" */
   color-scheme: only light;
   --background: #f1ece6;
   --foreground: #353535;
