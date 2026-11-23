@@ -4,7 +4,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { Fila } from "@/components/fila";
 import { FotoFrase } from "@/components/foto-frase";
 import { instagram, opinionesGoogle, whatsapp } from "@/lib/site";
-import { abonos, abonosNota, acuerdos, acuerdosCierre, acuerdosIntro, avisosAbonos, claseSuelta, grilla, grillaIntro } from "@/content/casa-corazon";
+import { opiniones, opinionesResumen, abonos, abonosNota, acuerdos, acuerdosCierre, acuerdosIntro, avisosAbonos, claseSuelta, grilla, grillaIntro } from "@/content/casa-corazon";
 
 export const metadata: Metadata = {
   title: "Clases presenciales en Casa Corazón",
@@ -91,6 +91,29 @@ export default function CasaCorazon() {
             </li>
           ))}
         </ul>
+      </section>
+
+      {/* Opiniones de Google Maps */}
+      <section id="opiniones" className="mx-auto max-w-6xl scroll-mt-20 px-4 pb-24">
+        <p className={eyebrow}>Opiniones</p>
+        <h2 className="mt-3 text-4xl md:text-5xl">Lo que dicen de Casa Corazón</h2>
+        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <article className="flex flex-col justify-between rounded-3xl bg-accent p-7 text-accent-foreground">
+            <div>
+              <p className="font-serif text-6xl leading-none">{opinionesResumen.puntaje}</p>
+              <p aria-label="5 estrellas" className="mt-3 text-xl tracking-widest text-lime">★★★★★</p>
+              <p className="mt-2 opacity-90">{opinionesResumen.cantidad} opiniones en Google</p>
+            </div>
+            <a href={opinionesGoogle.href} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-11 items-center self-start rounded-full border border-accent-foreground/50 px-6 text-sm font-medium transition-colors hover:bg-accent-foreground/10">Ver todas las opiniones</a>
+          </article>
+          {opiniones.map((o) => (
+            <figure key={o.nombre} className="flex flex-col rounded-3xl bg-surface p-7">
+              <p aria-label="5 estrellas" className="text-lg tracking-widest text-orange">★★★★★</p>
+              <blockquote className="mt-3 flex-1 text-[15px] leading-relaxed">“{o.texto}”</blockquote>
+              <figcaption className="mt-5 text-sm text-muted">{o.nombre} · Google Maps</figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
       {/* Grilla de clases */}
