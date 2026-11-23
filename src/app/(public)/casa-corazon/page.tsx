@@ -106,11 +106,11 @@ export default function CasaCorazon() {
             </div>
             <a href={opinionesGoogle.href} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-11 items-center self-start rounded-full border border-accent-foreground/50 px-6 text-sm font-medium transition-colors hover:bg-accent-foreground/10">Ver todas las opiniones</a>
           </article>
-          {opiniones.map((o) => (
-            <figure key={o.nombre} className="flex flex-col rounded-3xl bg-surface p-7">
+          {opiniones.map((texto) => (
+            <figure key={texto} className="flex flex-col rounded-3xl bg-surface p-7">
               <p aria-label="5 estrellas" className="text-lg tracking-widest text-orange">★★★★★</p>
-              <blockquote className="mt-3 flex-1 text-[15px] leading-relaxed">“{o.texto}”</blockquote>
-              <figcaption className="mt-5 text-sm text-muted">{o.nombre} · Google Maps</figcaption>
+              <blockquote className="mt-3 flex-1 text-[15px] leading-relaxed">“{texto}”</blockquote>
+              <figcaption className="mt-5 text-sm text-muted">Opinión en Google Maps</figcaption>
             </figure>
           ))}
         </div>
