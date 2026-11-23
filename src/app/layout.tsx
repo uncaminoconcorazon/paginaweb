@@ -14,10 +14,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: `${site.name} · Yoga, bienestar y comunidad`, template: `%s · ${site.name}` },
   description: "Yoga, arte, alimentación consciente, meditación y escritura para encontrar tu propio camino y llevarlo a la vida cotidiana.",
+  // Avisos extra para que ningún navegador ni extensión oscurezca el sitio.
+  other: { "supported-color-schemes": "light", "darkreader-lock": "" },
 };
 
 // Sitio solo en modo claro: evita que el celular lo oscurezca automáticamente.
-export const viewport: Viewport = { colorScheme: "only light", themeColor: "#f1ece6" };
+export const viewport: Viewport = { colorScheme: "light", themeColor: "#f1ece6" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

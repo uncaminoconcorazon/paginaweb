@@ -3,7 +3,10 @@ import { ButtonLink } from "@/components/ui/button";
 import { Cinta } from "@/components/cinta";
 import { Fila } from "@/components/fila";
 import { FotoFrase } from "@/components/foto-frase";
+import { Opinion } from "@/components/opinion";
 import { PlanCards } from "@/components/plan-cards";
+import { opinionesInicio, opinionesResumen } from "@/content/opiniones";
+import { opinionesGoogle } from "@/lib/site";
 import { castanedaShort, challenge, cinta, homeHero as h, invitationShort, phrases, tiles, wish } from "@/content/home";
 
 const eyebrow = "text-[11px] uppercase tracking-[0.28em] text-muted";
@@ -57,6 +60,17 @@ export default function Home() {
         <p className="mt-5 text-lg text-muted">Profesora de yoga y artista. Comparto el yoga junto al arte, la escritura y la alimentación, para llevarlo a la vida cotidiana.</p>
         <div className="mt-6"><ButtonLink href="/sobre-mi" variant="secondary">Conocer mi historia</ButtonLink></div>
       </Fila>
+
+      {/* Opiniones de alumnas y alumnos (Google Maps) */}
+      <section className="mx-auto max-w-6xl px-4 pt-16 md:pt-24">
+        <p className={eyebrow}>Opiniones</p>
+        <h2 className="mt-3 max-w-3xl text-4xl md:text-5xl">Lo que dicen de mis clases.</h2>
+        <p className="mt-4 max-w-2xl text-lg text-muted"><span aria-label="5 estrellas" className="tracking-widest text-orange">★★★★★</span> {opinionesResumen.puntaje} · {opinionesResumen.cantidad} opiniones en Google</p>
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          {opinionesInicio.map((texto) => <Opinion key={texto} texto={texto} />)}
+        </div>
+        <div className="mt-8"><ButtonLink href={opinionesGoogle.href} variant="secondary">Ver todas las opiniones</ButtonLink></div>
+      </section>
 
       {/* La membresía, en fotos */}
       <section className="mx-auto max-w-6xl px-4 py-16 md:py-24">

@@ -26,7 +26,7 @@
 - [ ] Formación, años de práctica y recorrido de Milu (hoy la página usa solo lo escrito en su documento del proyecto).
 - [ ] Más fotos de Milu si quiere sumar (hay 5 en `public/brand/milu/`: `retrato`, `pose`, `cuaderno`, `manos`, `grupo`).
 - [ ] Foto del bolster verde rayado (tienda).
-- [ ] Días y horarios de los encuentros presenciales en Casa Corazón (Humahuaca 377, Tapiales).
+- [x] Días y horarios, abonos y acuerdos de Casa Corazón: cargados en `src/content/casa-corazon.ts` y mostrados en `/casa-corazon` (valores vigentes desde diciembre).
 
 ## Textos y precios (documento "PROYECTO WEB: UN CAMINO CON CORAZÓN")
 - Textos de inicio, membresía, desafío, Sobre mí, Casa Corazón, preguntas frecuentes y frases: cargados desde el documento de Milu.

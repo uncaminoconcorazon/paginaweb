@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { instagram, publicNav, site } from "@/lib/site";
+import { instagram, publicNav, site, whatsapp } from "@/lib/site";
 
 export function PublicFooter() {
   return (
@@ -14,7 +14,7 @@ export function PublicFooter() {
           {publicNav.map((i) => <Link key={i.href} href={i.href} className="underline-offset-4 hover:underline">{i.label}</Link>)}
           <Link href="/tienda" className="underline-offset-4 hover:underline">Tienda</Link>
           <a href={instagram.href} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">Instagram {instagram.handle}</a>
-          <a href={instagram.href} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">Contacto</a>
+          <a href={whatsapp.consulta} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">WhatsApp {whatsapp.numero}</a>
           <Link href="/ingresar" className="underline-offset-4 hover:underline">Acceso a la membresía</Link>
           <Link href="/desafio" className="underline-offset-4 hover:underline">Acceso al desafío gratuito</Link>
         </nav>
