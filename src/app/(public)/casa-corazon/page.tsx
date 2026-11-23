@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
 import { Fila } from "@/components/fila";
 import { FotoFrase } from "@/components/foto-frase";
-import { instagram } from "@/lib/site";
+import { instagram, whatsapp } from "@/lib/site";
 import { abonos, abonosNota, acuerdos, acuerdosCierre, acuerdosIntro, avisosAbonos, claseSuelta, grilla, grillaIntro } from "@/content/casa-corazon";
 
 export const metadata: Metadata = {
@@ -118,7 +118,7 @@ export default function CasaCorazon() {
               <h3 className="font-serif text-3xl">Grupos reducidos</h3>
               <p className="mt-3 opacity-90">Máximo 5 personas. Las clases requieren reserva previa.</p>
             </div>
-            <a href={instagram.href} className="mt-6 inline-flex min-h-11 items-center self-start rounded-full border border-accent-foreground/50 px-6 text-sm font-medium transition-colors hover:bg-accent-foreground/10">Reservar por Instagram</a>
+            <a href={whatsapp.href} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-11 items-center self-start rounded-full border border-accent-foreground/50 px-6 text-sm font-medium transition-colors hover:bg-accent-foreground/10">Reservar por WhatsApp</a>
           </article>
         </div>
       </section>
@@ -174,10 +174,11 @@ export default function CasaCorazon() {
         <div className="mx-auto max-w-3xl">
           <h2 className="text-4xl">Ubicación</h2>
           <p className="mt-3 text-lg">Humahuaca 377, Tapiales, Buenos Aires.</p>
-          <p className="mt-3 text-sm text-muted">Para reservar tu lugar o hacer consultas, escribime por Instagram.</p>
+          <p className="mt-3 text-sm text-muted">Para reservar tu lugar o hacer consultas, escribime por WhatsApp ({whatsapp.numero}) o por Instagram.</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <ButtonLink href="https://www.google.com/maps/search/?api=1&query=Humahuaca+377+Tapiales">Cómo llegar</ButtonLink>
-            <ButtonLink href={instagram.href} variant="secondary">Escribime por Instagram</ButtonLink>
+            <ButtonLink href={whatsapp.href} variant="secondary">Escribime por WhatsApp</ButtonLink>
+            <ButtonLink href={instagram.href} variant="secondary">Instagram</ButtonLink>
           </div>
         </div>
       </section>

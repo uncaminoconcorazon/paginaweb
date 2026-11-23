@@ -13,6 +13,12 @@ export const publicNav = [
 
 export const instagram = { handle: "@un.camino.con.corazon", href: "https://www.instagram.com/un.camino.con.corazon/" };
 
+// WhatsApp de Casa Corazón (clases presenciales): reservas y consultas.
+export const whatsapp = {
+  numero: "+54 9 11 6917-0242",
+  href: "https://wa.me/5491169170242?text=" + encodeURIComponent("Hola! Quiero reservar mi lugar en una clase de Casa Corazón."),
+};
+
 export const memberNav = [
   { href: "/inicio", label: "Inicio" },
   { href: "/clases", label: "Clases" },
