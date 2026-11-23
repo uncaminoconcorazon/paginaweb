@@ -13,6 +13,9 @@ export const publicNav = [
 
 export const instagram = { handle: "@un.camino.con.corazon", href: "https://www.instagram.com/un.camino.con.corazon/" };
 
+// Opiniones de Casa Corazón en Google Maps.
+export const opinionesGoogle = { href: "https://maps.app.goo.gl/p8yNyMmY1Qbce486A" };
+
 // WhatsApp de Casa Corazón (clases presenciales): reservas y consultas.
 export const whatsapp = {
   numero: "+54 9 11 6917-0242",

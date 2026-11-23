@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button";
 import { Fila } from "@/components/fila";
 import { FotoFrase } from "@/components/foto-frase";
-import { instagram, whatsapp } from "@/lib/site";
+import { instagram, opinionesGoogle, whatsapp } from "@/lib/site";
 import { abonos, abonosNota, acuerdos, acuerdosCierre, acuerdosIntro, avisosAbonos, claseSuelta, grilla, grillaIntro } from "@/content/casa-corazon";
 
 export const metadata: Metadata = {
@@ -179,6 +179,7 @@ export default function CasaCorazon() {
             <ButtonLink href="https://www.google.com/maps/search/?api=1&query=Humahuaca+377+Tapiales">Cómo llegar</ButtonLink>
             <ButtonLink href={whatsapp.href} variant="secondary">Escribime por WhatsApp</ButtonLink>
             <ButtonLink href={instagram.href} variant="secondary">Instagram</ButtonLink>
+            <ButtonLink href={opinionesGoogle.href} variant="secondary">Ver opiniones en Google</ButtonLink>
           </div>
         </div>
       </section>
