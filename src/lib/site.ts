@@ -17,6 +17,7 @@ export const instagram = { handle: "@un.camino.con.corazon", href: "https://www.
 export const whatsapp = {
   numero: "+54 9 11 6917-0242",
   href: "https://wa.me/5491169170242?text=" + encodeURIComponent("Hola! Quiero reservar mi lugar en una clase de Casa Corazón."),
+  consulta: "https://wa.me/5491169170242?text=" + encodeURIComponent("Hola! Te escribo desde la web de Un camino con corazón. Quisiera hacerte una consulta."),
 };
 
 export const memberNav = [
