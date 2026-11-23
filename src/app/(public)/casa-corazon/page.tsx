@@ -4,7 +4,9 @@ import { ButtonLink } from "@/components/ui/button";
 import { Fila } from "@/components/fila";
 import { FotoFrase } from "@/components/foto-frase";
 import { instagram, opinionesGoogle, whatsapp } from "@/lib/site";
-import { opiniones, opinionesResumen, abonos, abonosNota, acuerdos, acuerdosCierre, acuerdosIntro, avisosAbonos, claseSuelta, grilla, grillaIntro } from "@/content/casa-corazon";
+import { Opinion } from "@/components/opinion";
+import { opiniones, opinionesResumen } from "@/content/opiniones";
+import { abonos, abonosNota, acuerdos, acuerdosCierre, acuerdosIntro, avisosAbonos, claseSuelta, grilla, grillaIntro } from "@/content/casa-corazon";
 
 export const metadata: Metadata = {
   title: "Clases presenciales en Casa Corazón",
@@ -106,13 +108,7 @@ export default function CasaCorazon() {
             </div>
             <a href={opinionesGoogle.href} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-11 items-center self-start rounded-full border border-accent-foreground/50 px-6 text-sm font-medium transition-colors hover:bg-accent-foreground/10">Ver todas las opiniones</a>
           </article>
-          {opiniones.map((texto) => (
-            <figure key={texto} className="flex flex-col rounded-3xl bg-surface p-7">
-              <p aria-label="5 estrellas" className="text-lg tracking-widest text-orange">★★★★★</p>
-              <blockquote className="mt-3 flex-1 text-[15px] leading-relaxed">“{texto}”</blockquote>
-              <figcaption className="mt-5 text-sm text-muted">Opinión en Google Maps</figcaption>
-            </figure>
-          ))}
+          {opiniones.map((texto) => <Opinion key={texto} texto={texto} />)}
         </div>
       </section>
 
